@@ -1,0 +1,38 @@
+name: Spacetop
+reference: https://doi.org/10.1038/s41597-025-05154-x
+subjects_n: 101
+
+neuroimaging:
+  fmri:
+    total_h: 606.0
+    per_subject_h: 6.0
+
+naturalistic_stimuli:
+  video:
+    total_unique: 1.44
+    per_subject_unique: 1.44
+    total_with_repetition: 145.4
+    per_subject_with_repetition: 1.44
+  speech_listening:
+    total_unique: 0.14
+    per_subject_unique: 0.14
+    total_with_repetition: 14.1
+    per_subject_with_repetition: 0.14
+  text_reading:
+    total_unique: 0.20
+    per_subject_unique: 0.20
+    total_with_repetition: 20.2
+    per_subject_with_repetition: 0.20
+
+responses:
+  controlled_tasks:
+    total_unique: 7
+    per_subject_unique: 5
+
+physiology:
+  eda:
+    total_unique: 585.8
+    per_subject_unique: 5.8
+  plethysmograph:
+    total_unique: 585.8
+    per_subject_unique: 5.8
