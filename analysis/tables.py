@@ -3,7 +3,7 @@ import pandas as pd
 from pathlib import Path
 
 
-COLUMN_GROUPS = [
+COLUMN_GROUPS_PER_SUBJECT = [
     ("Neuroimaging", "#4472C4", [
         ("fMRI",  "neuroimaging.fmri.per_subject_h",  "h"),
         ("EEG",   "neuroimaging.eeg.per_subject_h",   "h"),
@@ -23,11 +23,39 @@ COLUMN_GROUPS = [
         ("Games", "responses.game_actions.per_subject_unique",     "h"),
     ]),
     ("Physiology", "#7030A0", [
-        ("ECG",   "physiology.ecg.per_subject_unique",            "h"),
-        ("Resp.", "physiology.respiration.per_subject_unique",    "h"),
-        ("PPG",   "physiology.plethysmograph.per_subject_unique", "h"),
-        ("EDA",   "physiology.eda.per_subject_unique",            "h"),
-        ("Eye",   "physiology.eye_tracking.per_subject_unique",   "h"),
+        ("ECG",   "physiology.ecg.per_subject_h",            "h"),
+        ("Resp.", "physiology.respiration.per_subject_h",    "h"),
+        ("PPG",   "physiology.plethysmograph.per_subject_h", "h"),
+        ("EDA",   "physiology.eda.per_subject_h",            "h"),
+        ("Eye",   "physiology.eye_tracking.per_subject_h",   "h"),
+    ]),
+]
+
+COLUMN_GROUPS_TOTAL = [
+    ("Neuroimaging", "#4472C4", [
+        ("fMRI",  "neuroimaging.fmri.total_h",  "h"),
+        ("EEG",   "neuroimaging.eeg.total_h",   "h"),
+        ("MEG",   "neuroimaging.meg.total_h",   "h"),
+        ("iEEG",  "neuroimaging.ieeg.total_h",  "h"),
+    ]),
+    ("Stimuli", "#538135", [
+        ("Images", "naturalistic_stimuli.images.total_unique",           "#img"),
+        ("Video",  "naturalistic_stimuli.video.total_unique",            "h"),
+        ("Audio",  "naturalistic_stimuli.audio.total_unique",            "h"),
+        ("Speech", "naturalistic_stimuli.speech_listening.total_unique", "h"),
+        ("Text",   "naturalistic_stimuli.text_reading.total_unique",     "h"),
+        ("Rest",   "naturalistic_stimuli.resting_state.total_unique",    "h"),
+    ]),
+    ("Responses", "#C55A11", [
+        ("Tasks", "responses.controlled_tasks.total_unique", "#cond"),
+        ("Games", "responses.game_actions.total_unique",     "h"),
+    ]),
+    ("Physiology", "#7030A0", [
+        ("ECG",   "physiology.ecg.total_h",            "h"),
+        ("Resp.", "physiology.respiration.total_h",    "h"),
+        ("PPG",   "physiology.plethysmograph.total_h", "h"),
+        ("EDA",   "physiology.eda.total_h",            "h"),
+        ("Eye",   "physiology.eye_tracking.total_h",   "h"),
     ]),
 ]
 
@@ -40,7 +68,7 @@ def _get_nested(d, path):
     return d
 
 
-def build_tidy_table(source_dir: Path) -> pd.DataFrame:
+def build_tidy_table(source_dir: Path, column_groups: list) -> pd.DataFrame:
     """Load all dataset YAMLs and return a tidy long-format DataFrame."""
     datasets = []
     for yaml_file in sorted(Path(source_dir).glob("*.yaml")):
@@ -49,7 +77,7 @@ def build_tidy_table(source_dir: Path) -> pd.DataFrame:
 
     rows = []
     for ds in datasets:
-        for group_name, group_color, fields in COLUMN_GROUPS:
+        for group_name, group_color, fields in column_groups:
             for label, dotpath, unit in fields:
                 value = _get_nested(ds, dotpath)
                 rows.append({

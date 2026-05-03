@@ -50,16 +50,24 @@ def run_notebooks(c):
 @task
 def make_tables(c):
     """Generate tidy summary tables from the dataset YAML files."""
-    from analysis.tables import build_tidy_table
+    from analysis.tables import (
+        build_tidy_table,
+        COLUMN_GROUPS_PER_SUBJECT,
+        COLUMN_GROUPS_TOTAL,
+    )
 
     source_dir = Path(c.config.get("source_data_dir"))
     output_dir = Path(c.config.get("output_data_dir")).resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    df = build_tidy_table(source_dir)
-    out_path = output_dir / "datasets_tidy.csv"
-    df.to_csv(out_path, index=False)
-    print(f"Saved {len(df)} rows to {out_path.name}")
+    for scope, groups in [
+        ("per_subject", COLUMN_GROUPS_PER_SUBJECT),
+        ("total", COLUMN_GROUPS_TOTAL),
+    ]:
+        df = build_tidy_table(source_dir, groups)
+        out_path = output_dir / f"datasets_tidy_{scope}.csv"
+        df.to_csv(out_path, index=False)
+        print(f"Saved {len(df)} rows to {out_path.name}")
 
 
 @task(pre=[fetch, make_tables, run_notebooks])
