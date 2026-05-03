@@ -1,131 +1,56 @@
-# Airoh Template: Reproducible Pipelines Made Simple
+# Dense NeuroAI Dataset Comparison
 
-_why don't you have a cup of relaxing jasmine tea?_
-
-This repository is a template for structuring a reproducible data analysis. Built on the [`invoke`](https://www.pyinvoke.org/) task runner, it lets you go from clean clone to output figures with just a few commands.
-
-The logic is powered by [`airoh`](https://pypi.org/project/airoh/), a lightweight, pip-installable Python package of reusable `invoke` tasks. This repository runs small analyses just to demonstrate how the `airoh-template` works. It should be easy to adapt to a variety of other projects.
-
-⚠️ **Status**: This template is in its early days. Expect rapid iteration and changes.
+A systematic comparison of dense neuroAI datasets in terms of the volume and depth of neural data and cognitive states available. Built on the [`invoke`](https://www.pyinvoke.org/) task runner and [`airoh`](https://pypi.org/project/airoh/).
 
 ---
 
-## ✨ TL;DR:
+## Quick Start
 
-This repository is a [GitHub template](https://github.com/airoh-pipeline/airoh-template/generate). Click **”Use this template”** to create your own analysis project.
 ```bash
 uv sync
 uv run invoke fetch
 uv run invoke run
 ```
-Voilà — from clone to full reproduction.
 
 ---
 
-## 🚀 Quick Start
+## Setup
 
-### **Step 1**: Install dependencies
-
-Using `uv` (recommended):
 ```bash
 uv sync
 ```
+
 This creates a `.venv` and installs all dependencies from `pyproject.toml`.
 
-Using `pip` (e.g. in a virtual environment):
-```bash
-pip install -r requirements.txt
-```
+---
 
-Using `conda`:
-```bash
-conda env create -n airoh_env -f environment.yml
-conda activate airoh_env
-```
+## Tasks
+
+| Task | Description |
+|---|---|
+| `fetch` | Validate all dataset YAML files in `source_data/datasets/` against the JSON schema |
+| `run-notebooks` | Execute `summary.ipynb`, saving figures and tables to `output_data/` |
+| `run` | Full pipeline: `fetch` → `run-notebooks` |
+| `run-smoke` | Minimal end-to-end pass to verify the pipeline is wired correctly |
+| `clean` | Remove generated outputs from `output_data/` |
+
+Use `uv run invoke --list` or `uv run invoke --help <task>` for details.
 
 ---
 
+## Data
 
----
-### **Step 2**: Fetch the source data
-
-```
-bash
-invoke fetch
-```
-
-This downloads the configured file(s) listed under `files:` in `invoke.yaml`.
+- **Source data**: see [`source_data/CONTENT.md`](source_data/CONTENT.md)
+- **Output data**: see [`output_data/CONTENT.md`](output_data/CONTENT.md)
 
 ---
 
-### **Step 3**: Run the analysis pipeline
+## Folder Structure
 
-```
-bash
-invoke run
-```
-
-This will execute a full analysis pipeline (simulation + figures).
-
----
-
-### **Step 4**: Clean output data
-
-```
-bash
-invoke clean
-```
-
-Removes the output folder listed in `invoke.yaml` under `output_data_dir`.
-
----
-
-## 🧠 Core Features
-
-* Modular `tasks.py` that imports reusable code from `airoh`
-* Minimal and readable `invoke.yaml` configuration file
-* Real output notebooks & figures — ready to publish
-
----
-
-## 🧰 Task Overview
-
-| Task    | Description                                                 |
-| ------- | ----------------------------------------------------------- |
-| `fetch` | Downloads dataset using config in `invoke.yaml` |
-| `run`   | Executes Jupyter notebooks for each figure                  |
-| `clean` | Removes the `output_data_dir` contents                      |
-
-Use `invoke --list` or `invoke --help <task>` for descriptions and usage.
-
----
-
-## 🧭 Tips
-
-* Use `invoke --complete` for tab-completion support
-* Configure paths and data sources in `invoke.yaml`
-* To use this template for a new project, start from [`airoh-template`](https://github.com/SIMEXP/airoh-template) and customize `tasks.py` + `invoke.yaml`
-
----
-
-## 📁 Folder Structure
-
-| Folder / File  | Description                              |
-| -------------- | ---------------------------------------- |
-| `notebooks/`   | Jupyter notebooks (e.g., one per figure) |
-| `source_data/` | Raw source datasets — see [`source_data/CONTENT.md`](source_data/CONTENT.md) |
-| `output_data/` | Generated results and figures — see [`output_data/CONTENT.md`](output_data/CONTENT.md) |
-| `tasks.py`     | Project-specific invoke entrypoint       |
-| `invoke.yaml`  | Config file for all reusable tasks       |
-
----
-
-## 🔁 Want to contribute?
-
-Submit an issue or PR on [`airoh`](https://github.com/SIMEXP/airoh).
-
----
-
-## Philosophy
-
-Inspired by Uncle Iroh from *Avatar: The Last Airbender*, `airoh` aims to bring simplicity, reusability, and clarity to research infrastructure — one well-structured task at a time.
+| Folder / File | Description |
+|---|---|
+| `notebooks/` | Jupyter notebooks (one per figure/table group) |
+| `source_data/` | Manually curated inputs — see [`source_data/CONTENT.md`](source_data/CONTENT.md) |
+| `output_data/` | Generated figures and tables — see [`output_data/CONTENT.md`](output_data/CONTENT.md) |
+| `tasks.py` | Invoke task definitions |
+| `invoke.yaml` | Path configuration |

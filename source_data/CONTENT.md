@@ -1,6 +1,7 @@
-After `invoke fetch` is complete, expect the following content:
- * `YNIMG_BrainParcellation_summary.tsv` - a spreadsheet with some data on a series of articles.
+# Source Data
 
-📝 Note: tsv files are **ignored by Git** (see `.gitignore`), so data assets won't be tracked by default.
+All source data is manually curated and version-controlled via git.
 
-
+- `schema.json` — JSON Schema defining all possible fields for a dataset entry. Edit this to add new modalities or sub-fields.
+- `datasets/<name>.yaml` — one YAML file per dataset, with only the relevant fields populated. Validated against `schema.json` by `invoke fetch`.
+- `datasets/<name>.md` — markdown sidecar per dataset, justifying each value with direct quotes from the corresponding publication(s) or official documentation.

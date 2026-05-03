@@ -1,13 +1,14 @@
 [project]
-name = "airoh-mini"
+name = "dense-neuroai-dataset-comparison"
 version = "0.1.0"
 requires-python = ">=3.11"
 dependencies = [
     "airoh",
     "invoke",
-    "requests",
     "jupyter>=1.0",
     "nbconvert>=7.0",
     "matplotlib>=3.5",
     "pandas>=1.3",
+    "pyyaml>=6.0",
+    "jsonschema>=4.0",
 ]

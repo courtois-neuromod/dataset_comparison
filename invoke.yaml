@@ -1,19 +1,13 @@
 # invoke.yaml
 
 # Code folder
-code_dir: code
+code_dir: analysis
 
-# Notebooks folders
+# Notebooks folder
 notebooks_dir: notebooks
 
-# source data folders
+# Source data folder (manually curated YAML + MD files)
 source_data_dir: source_data
 
-# output data folders
+# Output data folder
 output_data_dir: output_data
-
-# file sources
-files:
-  papers:
-    url: https://api.figshare.com/v2/file/download/9843721
-    output_file: source_data/YNIMG_BrainParcellation_summary.tsv
