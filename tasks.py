@@ -47,7 +47,22 @@ def run_notebooks(c):
     airoh_run_notebooks(c, notebooks_dir, output_dir, keys=["source_data_dir", "output_data_dir"])
 
 
-@task(pre=[fetch, run_notebooks])
+@task
+def make_tables(c):
+    """Generate tidy summary tables from the dataset YAML files."""
+    from analysis.tables import build_tidy_table
+
+    source_dir = Path(c.config.get("source_data_dir"))
+    output_dir = Path(c.config.get("output_data_dir")).resolve()
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    df = build_tidy_table(source_dir)
+    out_path = output_dir / "datasets_tidy.csv"
+    df.to_csv(out_path, index=False)
+    print(f"Saved {len(df)} rows to {out_path.name}")
+
+
+@task(pre=[fetch, make_tables, run_notebooks])
 def run(c):
     """Full pipeline."""
     print("Pipeline complete.")

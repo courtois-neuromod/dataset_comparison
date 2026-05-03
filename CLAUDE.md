@@ -8,7 +8,7 @@ This project systematically compares dense neuroAI datasets in terms of the volu
 
 **Package manager:** `uv` (see `pyproject.toml`).
 
-**Pipeline:** `fetch` validates all YAML files in `source_data/` against `source_data/schema.json`; `run-notebooks` executes `notebooks/summary.ipynb` to produce figures and tables in `output_data/`. All source data is manually curated and version-controlled via git.
+**Pipeline:** `fetch` validates all YAML files in `source_data/` against `source_data/schema.json`; `make-tables` runs `analysis/tables.py` to produce `output_data/datasets_tidy.csv`; `run-notebooks` executes `notebooks/summary.ipynb` (reading the tidy CSV) to produce figures in `output_data/`. All source data is manually curated and version-controlled via git.
 
 ## Dataset Assets
 
@@ -66,8 +66,9 @@ invoke --list             # Show all available tasks
 
 - `invoke.yaml` — all path config (`output_data_dir`, `source_data_dir`, `notebooks_dir`)
 - `tasks.py` — project-specific invoke tasks; imports reusable tasks from `airoh.utils`
+- `analysis/tables.py` — defines `COLUMN_GROUPS` (field registry with labels, dotpaths, units, colors) and `build_tidy_table(source_dir)` which produces the long-format DataFrame; run via `make-tables`
 - `source_data/schema.json` — JSON Schema for dataset YAML files; edit here to add new modalities or fields
-- `notebooks/` — Jupyter notebooks executed by `run_notebooks` via `airoh.utils.run_notebooks`; notebooks receive `OUTPUT_DATA_DIR` and `SOURCE_DATA_DIR` as environment variables
+- `notebooks/` — Jupyter notebooks executed by `run_notebooks` via `airoh.utils.run_notebooks`; notebooks receive `OUTPUT_DATA_DIR` as an environment variable and read `datasets_tidy.csv` from it
 - `source_data/CONTENT.md` and `output_data/CONTENT.md` — authoritative docs for what each data folder contains; update these when data assets change, do not duplicate their content elsewhere
 
 **Adding a new schema field:** edit `source_data/schema.json`, then update any existing YAML files that should carry the new field.
