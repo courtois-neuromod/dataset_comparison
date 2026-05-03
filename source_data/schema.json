@@ -65,6 +65,10 @@
         "text_reading": {
           "description": "Text reading stimuli (hours)",
           "$ref": "#/$defs/stimulus_modality"
+        },
+        "resting_state": {
+          "description": "Resting-state (no task, no external stimuli; hours)",
+          "$ref": "#/$defs/stimulus_modality"
         }
       }
     },

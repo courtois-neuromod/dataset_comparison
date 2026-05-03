@@ -28,7 +28,7 @@ This creates a `.venv` and installs all dependencies from `pyproject.toml`.
 
 | Task | Description |
 |---|---|
-| `fetch` | Validate all dataset YAML files in `source_data/datasets/` against the JSON schema |
+| `fetch` | Validate all dataset YAML files in `source_data/` against the JSON schema |
 | `run-notebooks` | Execute `summary.ipynb`, saving figures and tables to `output_data/` |
 | `run` | Full pipeline: `fetch` → `run-notebooks` |
 | `run-smoke` | Minimal end-to-end pass to verify the pipeline is wired correctly |

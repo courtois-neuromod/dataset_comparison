@@ -11,14 +11,12 @@ def fetch(c):
 
     source_dir = Path(c.config.get("source_data_dir"))
     schema_file = source_dir / "schema.json"
-    datasets_dir = source_dir / "datasets"
-
     with open(schema_file) as f:
         schema = json.load(f)
 
-    yaml_files = sorted(datasets_dir.glob("*.yaml"))
+    yaml_files = sorted(source_dir.glob("*.yaml"))
     if not yaml_files:
-        print("No dataset YAML files found in source_data/datasets/ — nothing to validate.")
+        print("No dataset YAML files found in source_data/ — nothing to validate.")
         return
 
     errors = []

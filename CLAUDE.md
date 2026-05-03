@@ -8,11 +8,11 @@ This project systematically compares dense neuroAI datasets in terms of the volu
 
 **Package manager:** `uv` (see `pyproject.toml`).
 
-**Pipeline:** `fetch` validates all YAML files in `source_data/datasets/` against `source_data/schema.json`; `run-notebooks` executes `notebooks/summary.ipynb` to produce figures and tables in `output_data/`. All source data is manually curated and version-controlled via git.
+**Pipeline:** `fetch` validates all YAML files in `source_data/` against `source_data/schema.json`; `run-notebooks` executes `notebooks/summary.ipynb` to produce figures and tables in `output_data/`. All source data is manually curated and version-controlled via git.
 
 ## Dataset Assets
 
-Each dataset has two files in `source_data/datasets/`:
+Each dataset has two files in `source_data/`:
 
 - `<name>.yaml` — structured data entry, validated against `source_data/schema.json`. Only populate fields that are relevant to the dataset (e.g. omit `neuroimaging.meg` entirely if the dataset has no MEG).
 - `<name>.md` — markdown sidecar that justifies every value in the YAML with direct quotes from the corresponding publication(s) or official documentation.
@@ -26,8 +26,8 @@ The markdown sidecar should:
 When asked to work on a dataset entry:
 1. Identify which schema fields are relevant to the dataset
 2. Search for the paper(s) and/or documentation to find supporting quotes
-3. Draft or update `<name>.yaml` with only the relevant fields
-4. Draft or update `<name>.md` with quoted evidence for each field
+3. Draft or update `source_data/<name>.yaml` with only the relevant fields
+4. Draft or update `source_data/<name>.md` with quoted evidence for each field
 5. Flag any fields where information could not be found or is ambiguous
 
 ## Setup
