@@ -94,23 +94,23 @@
       "properties": {
         "ecg": {
           "description": "ECG / heart rate (hours)",
-          "$ref": "#/$defs/stimulus_modality"
+          "$ref": "#/$defs/recording_hours"
         },
         "respiration": {
           "description": "Respiration belt (hours)",
-          "$ref": "#/$defs/stimulus_modality"
+          "$ref": "#/$defs/recording_hours"
         },
         "plethysmograph": {
           "description": "Photoplethysmograph / pulse oximeter (hours)",
-          "$ref": "#/$defs/stimulus_modality"
+          "$ref": "#/$defs/recording_hours"
         },
         "eda": {
           "description": "Electrodermal activity (hours)",
-          "$ref": "#/$defs/stimulus_modality"
+          "$ref": "#/$defs/recording_hours"
         },
         "eye_tracking": {
           "description": "Eye tracking (hours)",
-          "$ref": "#/$defs/stimulus_modality"
+          "$ref": "#/$defs/recording_hours"
         }
       }
     }

@@ -85,7 +85,7 @@ The old/new distinction maps directly onto a memory retrieval vs. novel encoding
 
 ## physiology.eye_tracking
 
-### per_subject_unique: 3.0, total_unique: 24.0
+### per_subject_h: 3.0, total_h: 24.0
 
 > "**eye-tracking data (2–4 sessions per participant)** were also collected." (p. 117)
 

@@ -159,7 +159,7 @@ Source: Table 4, pp. 8–9; task descriptions pp. 5–12.
 
 ## physiology.eda
 
-### total_unique: 585.8 | per_subject_unique: 5.8
+### total_h: 585.8 | per_subject_h: 5.8
 
 > "participants were invited to the MRI scanning facility, in which they completed experimental tasks with concurrent fMRI and physiological recordings of skin conductance and photoplethysmography"
 
@@ -176,7 +176,7 @@ Total: 5.8 × 101 = **585.8 h**.
 
 ## physiology.plethysmograph
 
-### total_unique: 585.8 | per_subject_unique: 5.8
+### total_h: 585.8 | per_subject_h: 5.8
 
 > "concurrent fMRI and physiological recordings of skin conductance and photoplethysmography (Fig. 2)"
 
