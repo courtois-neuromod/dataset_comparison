@@ -108,23 +108,50 @@ Source: Table 6, p. 10.
 
 ## responses.controlled_tasks
 
-### total_unique: 7 | per_subject_unique: 5
+### total_unique: 739 | per_subject_unique: 554
 
-The dataset contains 9 fMRI task paradigms (Table 1, "# of fMRI Tasks: 9"), of which 2 are naturalistic (task-alignvideo, task-narratives) captured separately above. The remaining 7 are controlled experimental paradigms:
+Unique experimental conditions summed across all controlled tasks (naturalistic stimuli already counted above):
 
-1. **task-social** — 3 domains (somatic pain, vicarious pain, cognitive effort), 2-cue × 3-intensity factorial design
-2. **task-faces** — 96 trial types (8 emotion × 2 sex × 3 race × 2 age), 288 dynamic face stimuli across 3 runs
-3. **task-shortvideo** — 21 short video clips × 3 judgment types (likability, similarity, mental state attribution) = 63 trials per run
-4. **task-fractional / runtype-posner** — Attention reorienting, 120 trials
-5. **task-fractional / runtype-memory** — Memory encoding-retrieval, 120 trials
-6. **task-fractional / runtype-tomspunt** — Image-based theory of mind, 256 image × 2 question combinations
-7. **task-fractional / runtype-tomsaxe** — Text-based theory of mind, 10 false-belief + 10 false-photograph stories
+| Task | Conditions | Derivation |
+|---|---|---|
+| task-social | 18 | 2 cue × 3 intensity × 3 domain |
+| task-faces | 288 | 96 unique face stimuli/run × 3 runs |
+| task-shortvideo | 63 | 21 clips × 3 judgment types |
+| fractional-posner | 2 | valid vs invalid cue |
+| fractional-memory | 92 | 52 encoding images + 40 new distractors |
+| fractional-tomspunt | 256 | 64 images × 2 questions × 2 mediums |
+| fractional-tomsaxe | 20 | 10 false-belief + 10 false-photo stories |
+| **Total** | **739** | |
 
-> "Each participant was pseudo-randomly assigned to undergo two subtasks [of task-fractional], which were counterbalanced across participants."
+Key quotes per task:
 
+**task-social:** > "Each task was designed as a 2 cue (high/low) × 3 stimulus intensity (high/med/low) factorial design. The three tasks were conducted repeatedly on average, one week apart across three sessions." (3 domains: somatic pain, vicarious pain, cognitive effort) → 2 × 3 × 3 = 18 conditions.  
+Source: Multimodal negative affect task, p. 5.
+
+**task-faces:** > "Participants were presented with 288 dynamic faces of varying race, age, sex, and facial expression." and "96 trials in total (8 emotion x 2 sex x 3 race x 2 age)" per run × 3 runs = 288 unique face stimuli.  
+Source: Dynamic faces task, p. 8.
+
+**task-shortvideo:** > "63 trials (21 short videos x 3 judgments)" — likability, similarity, mental state attribution.  
+Source: Video-based multiattribute social judgement task, Fig. 4, p. 7.
+
+**task-fractional / posner:** > "A total of 120 trials were performed on this task." Primary manipulation: valid vs invalid cue = **2 conditions**.  
+Source: Cognitive/ToM task A, p. 10–11.
+
+**task-fractional / memory:** > "with a total of 26 × 2, i.e., 52 images" (encoding) + "40 × 2 images" for test (40 old + 40 new distractors) = **92 unique images**.  
+Source: Cognitive/ToM task B, p. 11.
+
+**task-fractional / tomspunt:** > "256 images, with 64 images crossed with 2 questions (why/how) and 2 mediums (face/hand)" = 64 × 2 × 2 = **256 unique conditions**.  
+Source: Cognitive/ToM task C, p. 11.
+
+**task-fractional / tomsaxe:** > "10 false belief stories" + "10 false photograph stories" = **20 unique stories**.  
+Source: Cognitive/ToM task D, p. 11–12.
+
+**Per subject (554):** All subjects complete social(18) + faces(288) + shortvideo(63) = 369 fixed conditions. For fractional, each subject gets 2 of 4 subtasks:
+
+> "Each participant was pseudo-randomly assigned to undergo two subtasks, which were counterbalanced across participants."  
 Source: Cognitive and Theory-of-mind task, p. 10.
 
-Per subject: task-social + task-faces + task-shortvideo + 2 of 4 fractional subtasks = **5 controlled paradigms**.
+Average conditions from 2 random subtasks drawn from {posner=2, memory=92, tomspunt=256, tomsaxe=20}: mean of all C(4,2)=6 pairs = (94+258+22+348+112+276)/6 = 185. Per subject: 369 + 185 = **554**.
 
 Source: Table 4, pp. 8–9; task descriptions pp. 5–12.
 

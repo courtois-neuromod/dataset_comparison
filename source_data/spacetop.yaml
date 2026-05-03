@@ -26,8 +26,8 @@ naturalistic_stimuli:
 
 responses:
   controlled_tasks:
-    total_unique: 7
-    per_subject_unique: 5
+    total_unique: 739
+    per_subject_unique: 554
 
 physiology:
   eda:
