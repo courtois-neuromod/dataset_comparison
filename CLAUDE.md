@@ -8,7 +8,7 @@ This project systematically compares dense neuroAI datasets in terms of the volu
 
 **Package manager:** `uv` (see `pyproject.toml`).
 
-**Pipeline:** `fetch` validates all YAML files in `source_data/` against `source_data/schema.json`; `make-tables` runs `analysis/tables.py` to produce `output_data/datasets_tidy.csv`; `run-notebooks` executes `notebooks/summary.ipynb` (reading the tidy CSV) to produce figures in `output_data/`. All source data is manually curated and version-controlled via git.
+**Pipeline:** `fetch` validates all YAML files in `source_data/` against `source_data/schema.json`; `run-tables` runs `analysis/tables.py` to produce `output_data/datasets_tidy_*.csv`; `run-figures` executes notebooks in `notebooks/` (reading the tidy CSVs) to produce figures in `output_data/`. All source data is manually curated and version-controlled via git.
 
 ## Dataset Assets
 

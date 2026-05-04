@@ -36,19 +36,7 @@ def fetch(c):
 
 
 @task
-def run_notebooks(c):
-    """Generate tables and figures from the dataset YAML files using notebooks."""
-    from airoh.utils import run_notebooks as airoh_run_notebooks, ensure_dir_exist
-
-    notebooks_dir = Path(c.config.get("notebooks_dir"))
-    output_dir = Path(c.config.get("output_data_dir")).resolve()
-
-    ensure_dir_exist(c, "output_data_dir")
-    airoh_run_notebooks(c, notebooks_dir, output_dir, keys=["source_data_dir", "output_data_dir"])
-
-
-@task
-def make_tables(c):
+def run_tables(c):
     """Generate tidy summary tables from the dataset YAML files."""
     from analysis.tables import (
         build_tidy_table,
@@ -70,7 +58,19 @@ def make_tables(c):
         print(f"Saved {len(df)} rows to {out_path.name}")
 
 
-@task(pre=[fetch, make_tables, run_notebooks])
+@task(pre=[run_tables])
+def run_figures(c):
+    """Generate figures from the dataset YAML files using notebooks."""
+    from airoh.utils import run_notebooks as airoh_run_notebooks, ensure_dir_exist
+
+    notebooks_dir = Path(c.config.get("notebooks_dir"))
+    output_dir = Path(c.config.get("output_data_dir")).resolve()
+
+    ensure_dir_exist(c, "output_data_dir")
+    airoh_run_notebooks(c, notebooks_dir, output_dir, keys=["source_data_dir", "output_data_dir"])
+
+
+@task(pre=[fetch, run_tables, run_figures])
 def run(c):
     """Full pipeline."""
     print("Pipeline complete.")
@@ -80,7 +80,7 @@ def run(c):
 def run_smoke(c):
     """Smoke test: minimal end-to-end pass."""
     fetch(c)
-    run_notebooks(c)
+    run_figures(c)
 
 
 @task
