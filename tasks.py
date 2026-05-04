@@ -4,10 +4,13 @@ from invoke import task
 
 @task
 def fetch(c):
-    """Validate all dataset YAML files against source_data/schema.json."""
+    """Initialize/update submodules and validate dataset YAML files against source_data/schema.json."""
+    from airoh.utils import ensure_submodule
     import json
     import yaml
     import jsonschema
+
+    ensure_submodule(c, "source_data/cneuromod")
 
     source_dir = Path(c.config.get("source_data_dir"))
     schema_file = source_dir / "schema.json"
@@ -35,7 +38,24 @@ def fetch(c):
     print(f"All {len(yaml_files)} dataset(s) valid.")
 
 
-@task
+@task(pre=[fetch])
+def make_cneuromod_yaml(c):
+    """Aggregate all cneuromod dataset_info.yaml stats into output_data/cneuromod.yaml."""
+    import yaml as _yaml
+    from analysis.tables import aggregate_cneuromod_yaml
+
+    cneuromod_dir = Path(c.config.get("source_data_dir")) / "cneuromod"
+    output_dir = Path(c.config.get("output_data_dir")).resolve()
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    combined = aggregate_cneuromod_yaml(cneuromod_dir)
+    out_path = output_dir / "cneuromod.yaml"
+    with open(out_path, "w") as f:
+        _yaml.dump(combined, f, default_flow_style=False, allow_unicode=True)
+    print(f"Saved combined CNeuroMod stats to {out_path.name}")
+
+
+@task(pre=[make_cneuromod_yaml])
 def run_tables(c):
     """Generate tidy summary tables from the dataset YAML files."""
     from analysis.tables import (
@@ -46,19 +66,42 @@ def run_tables(c):
 
     source_dir = Path(c.config.get("source_data_dir"))
     output_dir = Path(c.config.get("output_data_dir")).resolve()
+    cneuromod_yaml = output_dir / "cneuromod.yaml"
+
+    for scope, groups in [
+        ("per_subject", COLUMN_GROUPS_PER_SUBJECT),
+        ("total", COLUMN_GROUPS_TOTAL),
+    ]:
+        df = build_tidy_table(source_dir, groups, extra_yaml_files=[cneuromod_yaml])
+        out_path = output_dir / f"datasets_tidy_{scope}.csv"
+        df.to_csv(out_path, index=False)
+        print(f"Saved {len(df)} rows to {out_path.name}")
+
+
+@task(pre=[fetch])
+def run_cneuromod_tables(c):
+    """Generate tidy summary tables from cneuromod.all dataset_info.yaml files."""
+    from analysis.tables import (
+        build_cneuromod_tidy_table,
+        COLUMN_GROUPS_PER_SUBJECT,
+        COLUMN_GROUPS_TOTAL,
+    )
+
+    cneuromod_dir = Path(c.config.get("source_data_dir")) / "cneuromod"
+    output_dir = Path(c.config.get("output_data_dir")).resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
 
     for scope, groups in [
         ("per_subject", COLUMN_GROUPS_PER_SUBJECT),
         ("total", COLUMN_GROUPS_TOTAL),
     ]:
-        df = build_tidy_table(source_dir, groups)
-        out_path = output_dir / f"datasets_tidy_{scope}.csv"
+        df = build_cneuromod_tidy_table(cneuromod_dir, groups)
+        out_path = output_dir / f"cneuromod_tidy_{scope}.csv"
         df.to_csv(out_path, index=False)
         print(f"Saved {len(df)} rows to {out_path.name}")
 
 
-@task(pre=[run_tables])
+@task(pre=[run_tables, run_cneuromod_tables])
 def run_figures(c):
     """Generate figures from the dataset YAML files using notebooks."""
     from airoh.utils import run_notebooks as airoh_run_notebooks, ensure_dir_exist
@@ -70,7 +113,20 @@ def run_figures(c):
     airoh_run_notebooks(c, notebooks_dir, output_dir, keys=["source_data_dir", "output_data_dir"])
 
 
-@task(pre=[fetch, run_tables, run_figures])
+@task(pre=[run_cneuromod_tables])
+def run_cneuromod_figures(c):
+    """Generate CNeuroMod figures from cneuromod tidy tables using the cneuromod notebook."""
+    output_dir = Path(c.config.get("output_data_dir")).resolve()
+    output_dir.mkdir(parents=True, exist_ok=True)
+    nb = Path(c.config.get("notebooks_dir")) / "cneuromod.ipynb"
+    env = {
+        "OUTPUT_DATA_DIR": str(output_dir),
+        "SOURCE_DATA_DIR": str(Path(c.config.get("source_data_dir")).resolve()),
+    }
+    c.run(f"jupyter nbconvert --to notebook --execute --inplace {nb}", env=env)
+
+
+@task(pre=[fetch, run_tables, run_figures, run_cneuromod_figures])
 def run(c):
     """Full pipeline."""
     print("Pipeline complete.")
