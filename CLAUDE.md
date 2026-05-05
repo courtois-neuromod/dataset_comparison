@@ -66,13 +66,27 @@ invoke --list             # Show all available tasks
 
 - `invoke.yaml` — all path config (`output_data_dir`, `source_data_dir`, `notebooks_dir`)
 - `tasks.py` — project-specific invoke tasks; imports reusable tasks from `airoh.utils`
-- `analysis/tables.py` — defines `COLUMN_GROUPS` (field registry with labels, dotpaths, units, colors) and `build_tidy_table(source_dir)` which produces the long-format DataFrame; run via `make-tables`
+- `analysis/tables.py` — defines `COLUMN_GROUPS` (field registry with labels, dotpaths, units, colors) and `build_tidy_table(source_dir)` which produces the long-format DataFrame; run via `run-tables`
 - `source_data/schema.json` — JSON Schema for dataset YAML files; edit here to add new modalities or fields
 - `notebooks/` — Jupyter notebooks executed by `run_notebooks` via `airoh.utils.run_notebooks`; notebooks receive `OUTPUT_DATA_DIR` as an environment variable and read `datasets_tidy.csv` from it
 - `source_data/CONTENT.md` and `output_data/CONTENT.md` — authoritative docs for what each data folder contains; update these when data assets change, do not duplicate their content elsewhere
 
+**Analysis vs. notebooks:** Heavy computation belongs in `analysis/` Python code, invoked by `run-{name}` tasks, which write results to `output_data/`. Notebooks are for visualization only — they read from `output_data/` and produce figures. This keeps notebooks fast and focused.
+
+**Idempotent tasks:** Each `run-{name}` task must check whether its outputs already exist and skip execution if they do. This means `invoke run` can be called repeatedly during development of a later step — earlier steps are skipped automatically. To force a full rerun, call `invoke clean` first, then `invoke run`.
+
+**Task naming conventions:**
+- Analysis tasks are named `run-{name}` (e.g. `run-tables`, `run-figures`).
+- Cleaning tasks mirror them: `clean-{name}` removes only the outputs of the corresponding step.
+- The top-level `clean` task calls all `clean-{name}` tasks in sequence.
+- The top-level `run` task wires all steps together via `pre=` chains in `tasks.py`.
+
+**Task parameters:** `run-{name}` tasks should expose chunk or subset parameters (e.g. a dataset name) so that individual pieces can be rerun in isolation. They should also support a `smoke` flag for a fast minimal run useful for testing the pipeline end-to-end without running the full analysis.
+
 **Adding a new schema field:** edit `source_data/schema.json`, then update any existing YAML files that should carry the new field.
 
-**Adding a new analysis step:** create or extend a notebook in `notebooks/`, add an invoke task in `tasks.py`, and wire it into the `pre=` chain on `run`.
+**Adding a new analysis step:** add a function to `analysis/`, add a `run-{name}` task and a matching `clean-{name}` task in `tasks.py`, wire both into the top-level `run` and `clean` tasks via `pre=` chains, and create or extend a notebook in `notebooks/` for visualization.
+
+**Evolving CLAUDE.md:** As the project grows, update this file to document the specific analysis steps, data sources, and decisions for this project. The airoh conventions above (idempotent tasks, `run-{name}`/`clean-{name}` pairs, analysis-in-code/visualization-in-notebooks) apply for the lifetime of the project.
 
 **README.md** is the user-facing documentation for this project. Any structural or workflow changes — new tasks, renamed folders, updated commands, new dependencies — must be reflected there. For data folder contents, point to `source_data/CONTENT.md` and `output_data/CONTENT.md` rather than duplicating their content inline.
