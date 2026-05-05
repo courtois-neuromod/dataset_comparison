@@ -8,8 +8,8 @@ naturalistic_stimuli:
     total_unique: 72.3
 neuroimaging:
   fmri:
-    per_subject_h: 84.1
-    total_h: 476.6
+    per_subject_h: 100.5
+    total_h: 542.1
 physiology:
   ecg:
     per_subject_h: 37.5
@@ -25,6 +25,6 @@ physiology:
     total_h: 197.0
 responses:
   controlled_tasks:
-    per_subject_unique: 21
-    total_unique: 21
+    per_subject_unique: 4341
+    total_unique: 4341
 subjects_n: 6

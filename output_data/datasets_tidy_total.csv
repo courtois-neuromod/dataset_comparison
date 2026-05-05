@@ -1,0 +1,69 @@
+dataset,group,group_color,modality,dotpath,unit,value
+Natural Object Dataset (NOD-MEG+EEG),Neuroimaging,#4472C4,fMRI,neuroimaging.fmri.total_h,h,
+Natural Object Dataset (NOD-MEG+EEG),Neuroimaging,#4472C4,EEG,neuroimaging.eeg.total_h,h,24.0
+Natural Object Dataset (NOD-MEG+EEG),Neuroimaging,#4472C4,MEG,neuroimaging.meg.total_h,h,25.0
+Natural Object Dataset (NOD-MEG+EEG),Neuroimaging,#4472C4,iEEG,neuroimaging.ieeg.total_h,h,
+Natural Object Dataset (NOD-MEG+EEG),Stimuli,#538135,Images,naturalistic_stimuli.images.total_unique,#img,4000.0
+Natural Object Dataset (NOD-MEG+EEG),Stimuli,#538135,Video,naturalistic_stimuli.video.total_unique,h,
+Natural Object Dataset (NOD-MEG+EEG),Stimuli,#538135,Audio,naturalistic_stimuli.audio.total_unique,h,
+Natural Object Dataset (NOD-MEG+EEG),Stimuli,#538135,Speech,naturalistic_stimuli.speech_listening.total_unique,h,
+Natural Object Dataset (NOD-MEG+EEG),Stimuli,#538135,Text,naturalistic_stimuli.text_reading.total_unique,h,
+Natural Object Dataset (NOD-MEG+EEG),Stimuli,#538135,Rest,naturalistic_stimuli.resting_state.total_unique,h,
+Natural Object Dataset (NOD-MEG+EEG),Responses,#C55A11,Tasks,responses.controlled_tasks.total_unique,#cond,2.0
+Natural Object Dataset (NOD-MEG+EEG),Responses,#C55A11,Games,responses.game_actions.total_unique,h,
+Natural Object Dataset (NOD-MEG+EEG),Physiology,#7030A0,ECG,physiology.ecg.total_h,h,
+Natural Object Dataset (NOD-MEG+EEG),Physiology,#7030A0,Resp.,physiology.respiration.total_h,h,
+Natural Object Dataset (NOD-MEG+EEG),Physiology,#7030A0,PPG,physiology.plethysmograph.total_h,h,
+Natural Object Dataset (NOD-MEG+EEG),Physiology,#7030A0,EDA,physiology.eda.total_h,h,
+Natural Object Dataset (NOD-MEG+EEG),Physiology,#7030A0,Eye,physiology.eye_tracking.total_h,h,
+Natural Scenes Dataset (NSD),Neuroimaging,#4472C4,fMRI,neuroimaging.fmri.total_h,h,284.0
+Natural Scenes Dataset (NSD),Neuroimaging,#4472C4,EEG,neuroimaging.eeg.total_h,h,
+Natural Scenes Dataset (NSD),Neuroimaging,#4472C4,MEG,neuroimaging.meg.total_h,h,
+Natural Scenes Dataset (NSD),Neuroimaging,#4472C4,iEEG,neuroimaging.ieeg.total_h,h,
+Natural Scenes Dataset (NSD),Stimuli,#538135,Images,naturalistic_stimuli.images.total_unique,#img,70566.0
+Natural Scenes Dataset (NSD),Stimuli,#538135,Video,naturalistic_stimuli.video.total_unique,h,
+Natural Scenes Dataset (NSD),Stimuli,#538135,Audio,naturalistic_stimuli.audio.total_unique,h,
+Natural Scenes Dataset (NSD),Stimuli,#538135,Speech,naturalistic_stimuli.speech_listening.total_unique,h,
+Natural Scenes Dataset (NSD),Stimuli,#538135,Text,naturalistic_stimuli.text_reading.total_unique,h,
+Natural Scenes Dataset (NSD),Stimuli,#538135,Rest,naturalistic_stimuli.resting_state.total_unique,h,18.7
+Natural Scenes Dataset (NSD),Responses,#C55A11,Tasks,responses.controlled_tasks.total_unique,#cond,2.0
+Natural Scenes Dataset (NSD),Responses,#C55A11,Games,responses.game_actions.total_unique,h,
+Natural Scenes Dataset (NSD),Physiology,#7030A0,ECG,physiology.ecg.total_h,h,
+Natural Scenes Dataset (NSD),Physiology,#7030A0,Resp.,physiology.respiration.total_h,h,
+Natural Scenes Dataset (NSD),Physiology,#7030A0,PPG,physiology.plethysmograph.total_h,h,
+Natural Scenes Dataset (NSD),Physiology,#7030A0,EDA,physiology.eda.total_h,h,
+Natural Scenes Dataset (NSD),Physiology,#7030A0,Eye,physiology.eye_tracking.total_h,h,24.0
+Spacetop,Neuroimaging,#4472C4,fMRI,neuroimaging.fmri.total_h,h,606.0
+Spacetop,Neuroimaging,#4472C4,EEG,neuroimaging.eeg.total_h,h,
+Spacetop,Neuroimaging,#4472C4,MEG,neuroimaging.meg.total_h,h,
+Spacetop,Neuroimaging,#4472C4,iEEG,neuroimaging.ieeg.total_h,h,
+Spacetop,Stimuli,#538135,Images,naturalistic_stimuli.images.total_unique,#img,
+Spacetop,Stimuli,#538135,Video,naturalistic_stimuli.video.total_unique,h,1.44
+Spacetop,Stimuli,#538135,Audio,naturalistic_stimuli.audio.total_unique,h,
+Spacetop,Stimuli,#538135,Speech,naturalistic_stimuli.speech_listening.total_unique,h,0.14
+Spacetop,Stimuli,#538135,Text,naturalistic_stimuli.text_reading.total_unique,h,0.2
+Spacetop,Stimuli,#538135,Rest,naturalistic_stimuli.resting_state.total_unique,h,
+Spacetop,Responses,#C55A11,Tasks,responses.controlled_tasks.total_unique,#cond,739.0
+Spacetop,Responses,#C55A11,Games,responses.game_actions.total_unique,h,
+Spacetop,Physiology,#7030A0,ECG,physiology.ecg.total_h,h,
+Spacetop,Physiology,#7030A0,Resp.,physiology.respiration.total_h,h,
+Spacetop,Physiology,#7030A0,PPG,physiology.plethysmograph.total_h,h,585.8
+Spacetop,Physiology,#7030A0,EDA,physiology.eda.total_h,h,585.8
+Spacetop,Physiology,#7030A0,Eye,physiology.eye_tracking.total_h,h,
+CNeuroMod,Neuroimaging,#4472C4,fMRI,neuroimaging.fmri.total_h,h,542.1
+CNeuroMod,Neuroimaging,#4472C4,EEG,neuroimaging.eeg.total_h,h,
+CNeuroMod,Neuroimaging,#4472C4,MEG,neuroimaging.meg.total_h,h,
+CNeuroMod,Neuroimaging,#4472C4,iEEG,neuroimaging.ieeg.total_h,h,
+CNeuroMod,Stimuli,#538135,Images,naturalistic_stimuli.images.total_unique,#img,
+CNeuroMod,Stimuli,#538135,Video,naturalistic_stimuli.video.total_unique,h,72.3
+CNeuroMod,Stimuli,#538135,Audio,naturalistic_stimuli.audio.total_unique,h,
+CNeuroMod,Stimuli,#538135,Speech,naturalistic_stimuli.speech_listening.total_unique,h,
+CNeuroMod,Stimuli,#538135,Text,naturalistic_stimuli.text_reading.total_unique,h,
+CNeuroMod,Stimuli,#538135,Rest,naturalistic_stimuli.resting_state.total_unique,h,7.5
+CNeuroMod,Responses,#C55A11,Tasks,responses.controlled_tasks.total_unique,#cond,4341.0
+CNeuroMod,Responses,#C55A11,Games,responses.game_actions.total_unique,h,
+CNeuroMod,Physiology,#7030A0,ECG,physiology.ecg.total_h,h,197.0
+CNeuroMod,Physiology,#7030A0,Resp.,physiology.respiration.total_h,h,197.0
+CNeuroMod,Physiology,#7030A0,PPG,physiology.plethysmograph.total_h,h,197.0
+CNeuroMod,Physiology,#7030A0,EDA,physiology.eda.total_h,h,
+CNeuroMod,Physiology,#7030A0,Eye,physiology.eye_tracking.total_h,h,197.0

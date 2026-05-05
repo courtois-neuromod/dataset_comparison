@@ -10,7 +10,7 @@ def fetch(c):
     import yaml
     import jsonschema
 
-    ensure_submodule(c, "source_data/cneuromod")
+    ensure_submodule(c, "source_data/cneuromod", recursive=False)
 
     source_dir = Path(c.config.get("source_data_dir"))
     schema_file = source_dir / "schema.json"
