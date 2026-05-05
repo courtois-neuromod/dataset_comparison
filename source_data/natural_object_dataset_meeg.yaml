@@ -1,0 +1,23 @@
+name: Natural Object Dataset (NOD-MEG+EEG)
+reference: https://doi.org/10.1038/s41597-025-05174-7
+subjects_n: 30
+
+neuroimaging:
+  meg:
+    total_h: 25.0
+    per_subject_h: 0.83
+  eeg:
+    total_h: 24.0
+    per_subject_h: 1.26
+
+naturalistic_stimuli:
+  images:
+    total_unique: 4000
+    per_subject_unique: 1900
+    total_with_repetition: 57000
+    per_subject_with_repetition: 1900
+
+responses:
+  controlled_tasks:
+    total_unique: 2
+    per_subject_unique: 2

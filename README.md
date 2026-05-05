@@ -1,5 +1,7 @@
 # Dense NeuroAI Dataset Comparison
 
+![Dataset comparison per subject](output_data/dataset_comparison_per_subject.png)
+
 A systematic comparison of dense neuroAI datasets in terms of the volume and depth of neural data and cognitive states available. Built on the [`invoke`](https://www.pyinvoke.org/) task runner and [`airoh`](https://pypi.org/project/airoh/).
 
 ---
