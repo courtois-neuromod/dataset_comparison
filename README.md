@@ -24,15 +24,25 @@ This creates a `.venv` and installs all dependencies from `pyproject.toml`.
 
 ---
 
+## Design Principles
+
+- **Analysis in code, visualization in notebooks.** Heavy computation lives in `analysis/` Python modules and is run by `invoke` tasks. Notebooks only read results and produce figures — so they stay fast.
+- **Idempotent steps.** Each `run-{name}` task checks whether its outputs already exist and skips if they do. You can call `invoke run` repeatedly while working on a later step without re-running earlier ones. To force a full rerun: `invoke clean && invoke run`.
+- **Mirrored clean tasks.** Every `run-{name}` has a matching `clean-{name}` that removes only its outputs. The top-level `clean` calls them all.
+- **Smoke test.** Tasks support a `--smoke` flag for a fast minimal run to verify the pipeline end-to-end.
+
+---
+
 ## Tasks
 
 | Task | Description |
 |---|---|
 | `fetch` | Validate all dataset YAML files in `source_data/` against the JSON schema |
-| `run-notebooks` | Execute `summary.ipynb`, saving figures and tables to `output_data/` |
-| `run` | Full pipeline: `fetch` → `run-notebooks` |
-| `run-smoke` | Minimal end-to-end pass to verify the pipeline is wired correctly |
-| `clean` | Remove generated outputs from `output_data/` |
+| `run-tables` | Build tidy CSV tables from source YAML files |
+| `run-figures` | Execute notebooks, saving figures to `output_data/` |
+| `run` | Full pipeline: `fetch` → `run-tables` → `run-figures` |
+| `clean-{name}` | Remove outputs of one specific step |
+| `clean` | Remove all generated outputs from `output_data/` |
 
 Use `uv run invoke --list` or `uv run invoke --help <task>` for details.
 
@@ -49,7 +59,8 @@ Use `uv run invoke --list` or `uv run invoke --help <task>` for details.
 
 | Folder / File | Description |
 |---|---|
-| `notebooks/` | Jupyter notebooks (one per figure/table group) |
+| `analysis/` | Pure Python analysis logic, called by invoke tasks |
+| `notebooks/` | Jupyter notebooks for visualization (one per figure/table group) |
 | `source_data/` | Manually curated inputs — see [`source_data/CONTENT.md`](source_data/CONTENT.md) |
 | `output_data/` | Generated figures and tables — see [`output_data/CONTENT.md`](output_data/CONTENT.md) |
 | `tasks.py` | Invoke task definitions |
