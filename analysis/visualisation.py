@@ -131,7 +131,10 @@ def make_bubble_chart(column_groups, pivot, datasets_list, title, out_path,
 
 def make_fmri_scatter(pivot_per_subject, pivot_total, datasets_list, out_path,
                       highlight="CNeuroMod"):
-    """Scatter plot: fMRI hours per subject (x) vs total fMRI hours (y).
+    """Scatter plot: neuroimaging hours per subject (x) vs number of subjects (y).
+
+    Neuroimaging hours sum fMRI, EEG, MEG, and iEEG. Iso-hours lines show
+    constant total neuroimaging hours: n_subjects = H / hours_per_subject.
 
     Parameters
     ----------
@@ -141,50 +144,71 @@ def make_fmri_scatter(pivot_per_subject, pivot_total, datasets_list, out_path,
     out_path          : Path to save the PNG
     highlight         : dataset name to highlight (drawn larger, distinct color)
     """
-    X_PATH = "neuroimaging.fmri.per_subject_h"
-    Y_PATH = "neuroimaging.fmri.total_h"
+    PER_SUBJECT_PATHS = [
+        "neuroimaging.fmri.per_subject_h",
+        "neuroimaging.eeg.per_subject_h",
+        "neuroimaging.meg.per_subject_h",
+        "neuroimaging.ieeg.per_subject_h",
+    ]
+    TOTAL_PATHS = [
+        "neuroimaging.fmri.total_h",
+        "neuroimaging.eeg.total_h",
+        "neuroimaging.meg.total_h",
+        "neuroimaging.ieeg.total_h",
+    ]
+
+    def _sum_paths(pivot, ds, paths):
+        total = 0.0
+        for p in paths:
+            if ds in pivot.index and p in pivot.columns:
+                v = pivot.loc[ds, p]
+                if pd.notna(v):
+                    total += float(v)
+        return total
 
     points = []
     for ds in datasets_list:
-        x = pivot_per_subject.loc[ds, X_PATH] if (ds in pivot_per_subject.index and X_PATH in pivot_per_subject.columns) else np.nan
-        y = pivot_total.loc[ds, Y_PATH] if (ds in pivot_total.index and Y_PATH in pivot_total.columns) else np.nan
-        if pd.notna(x) and pd.notna(y) and x > 0 and y > 0:
-            points.append((ds, float(x), float(y)))
+        x = _sum_paths(pivot_per_subject, ds, PER_SUBJECT_PATHS)
+        y_total = _sum_paths(pivot_total, ds, TOTAL_PATHS)
+        if x > 0 and y_total > 0:
+            points.append((ds, x, float(y_total / x)))
 
     if not points:
-        print("No fMRI data found — skipping scatter plot.")
+        print("No neuroimaging data found — skipping scatter plot.")
         return
 
     fig, ax = plt.subplots(figsize=(6, 5))
 
-    # Iso-subject lines
-    x_range = np.array([min(p[1] for p in points), max(p[1] for p in points)])
-    x_pad = np.array([x_range[0] * 0.5, x_range[1] * 2])
-    for n_sub in [1, 5, 10, 50]:
-        ax.plot(x_pad, n_sub * x_pad, color="grey", linewidth=0.7,
+    # Iso-hours hyperbolas: n_subjects = H / hours_per_subject
+    x_min = min(p[1] for p in points)
+    x_max = max(p[1] for p in points)
+    x_pad = np.linspace(x_min * 0.4, x_max * 2.5, 200)
+    for H in [50, 200, 1000, 5000]:
+        label = f"{H}h" if H < 1000 else f"{H // 1000}kh"
+        y_iso = H / x_pad
+        ax.plot(x_pad, y_iso, color="grey", linewidth=0.7,
                 linestyle="--", alpha=0.4, zorder=1)
-        ax.text(x_pad[1], n_sub * x_pad[1], f"  {n_sub} sub",
+        ax.text(x_pad[-1], y_iso[-1], f"  {label}",
                 va="center", fontsize=7, color="grey", alpha=0.7)
 
-    for ds, x, y in points:
+    for ds, x, n_sub in points:
         is_highlight = ds == highlight
         color = "#e63946" if is_highlight else "#4472C4"
         marker_size = 120 if is_highlight else 60
         zorder = 4 if is_highlight else 3
-        ax.scatter(x, y, s=marker_size, color=color, zorder=zorder,
+        ax.scatter(x, n_sub, s=marker_size, color=color, zorder=zorder,
                    edgecolors="white", linewidths=0.8)
         va = "bottom" if not is_highlight else "top"
         offset = (0, 6) if not is_highlight else (0, -6)
-        ax.annotate(ds, (x, y), xytext=offset, textcoords="offset points",
+        ax.annotate(ds, (x, n_sub), xytext=offset, textcoords="offset points",
                     ha="center", va=va, fontsize=8,
                     fontweight="bold" if is_highlight else "normal",
                     color=color, zorder=5)
 
-    ax.set_xscale("linear")
     ax.set_yscale("log")
-    ax.set_xlabel("fMRI hours per subject", fontsize=10)
-    ax.set_ylabel("Total fMRI hours", fontsize=10)
-    ax.set_title("fMRI depth vs. total volume", fontsize=12, fontweight="bold")
+    ax.set_xlabel("Neuroimaging hours per subject (fMRI + EEG + MEG + iEEG)", fontsize=10)
+    ax.set_ylabel("Number of subjects", fontsize=10)
+    ax.set_title("Neuroimaging depth vs. breadth", fontsize=12, fontweight="bold")
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
 

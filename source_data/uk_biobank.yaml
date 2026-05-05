@@ -1,0 +1,20 @@
+name: UK Biobank Brain Imaging
+reference: https://doi.org/10.1038/nn.4393
+subjects_n: 67000
+
+neuroimaging:
+  fmri:
+    total_h: 11167.0
+    per_subject_h: 0.167
+
+naturalistic_stimuli:
+  resting_state:
+    total_unique: 6700.0
+    per_subject_unique: 0.1
+    total_with_repetition: 6700.0
+    per_subject_with_repetition: 0.1
+
+responses:
+  controlled_tasks:
+    total_unique: 2
+    per_subject_unique: 2
