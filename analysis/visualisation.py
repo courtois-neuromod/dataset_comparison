@@ -129,6 +129,71 @@ def make_bubble_chart(column_groups, pivot, datasets_list, title, out_path,
     print(f"Saved {out_path.name}")
 
 
+def make_fmri_scatter(pivot_per_subject, pivot_total, datasets_list, out_path,
+                      highlight="CNeuroMod"):
+    """Scatter plot: fMRI hours per subject (x) vs total fMRI hours (y).
+
+    Parameters
+    ----------
+    pivot_per_subject : DataFrame indexed by dataset, columns are dotpaths
+    pivot_total       : DataFrame indexed by dataset, columns are dotpaths
+    datasets_list     : list of dataset names
+    out_path          : Path to save the PNG
+    highlight         : dataset name to highlight (drawn larger, distinct color)
+    """
+    X_PATH = "neuroimaging.fmri.per_subject_h"
+    Y_PATH = "neuroimaging.fmri.total_h"
+
+    points = []
+    for ds in datasets_list:
+        x = pivot_per_subject.loc[ds, X_PATH] if (ds in pivot_per_subject.index and X_PATH in pivot_per_subject.columns) else np.nan
+        y = pivot_total.loc[ds, Y_PATH] if (ds in pivot_total.index and Y_PATH in pivot_total.columns) else np.nan
+        if pd.notna(x) and pd.notna(y) and x > 0 and y > 0:
+            points.append((ds, float(x), float(y)))
+
+    if not points:
+        print("No fMRI data found — skipping scatter plot.")
+        return
+
+    fig, ax = plt.subplots(figsize=(6, 5))
+
+    # Iso-subject lines
+    x_range = np.array([min(p[1] for p in points), max(p[1] for p in points)])
+    x_pad = np.array([x_range[0] * 0.5, x_range[1] * 2])
+    for n_sub in [1, 5, 10, 50]:
+        ax.plot(x_pad, n_sub * x_pad, color="grey", linewidth=0.7,
+                linestyle="--", alpha=0.4, zorder=1)
+        ax.text(x_pad[1], n_sub * x_pad[1], f"  {n_sub} sub",
+                va="center", fontsize=7, color="grey", alpha=0.7)
+
+    for ds, x, y in points:
+        is_highlight = ds == highlight
+        color = "#e63946" if is_highlight else "#4472C4"
+        marker_size = 120 if is_highlight else 60
+        zorder = 4 if is_highlight else 3
+        ax.scatter(x, y, s=marker_size, color=color, zorder=zorder,
+                   edgecolors="white", linewidths=0.8)
+        va = "bottom" if not is_highlight else "top"
+        offset = (0, 6) if not is_highlight else (0, -6)
+        ax.annotate(ds, (x, y), xytext=offset, textcoords="offset points",
+                    ha="center", va=va, fontsize=8,
+                    fontweight="bold" if is_highlight else "normal",
+                    color=color, zorder=5)
+
+    ax.set_xscale("linear")
+    ax.set_yscale("log")
+    ax.set_xlabel("fMRI hours per subject", fontsize=10)
+    ax.set_ylabel("Total fMRI hours", fontsize=10)
+    ax.set_title("fMRI depth vs. total volume", fontsize=12, fontweight="bold")
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+
+    plt.tight_layout()
+    fig.savefig(out_path, dpi=150, bbox_inches="tight")
+    plt.show()
+    print(f"Saved {out_path.name}")
+
+
 def make_legend(out_path):
     """Save a standalone bubble-size legend figure."""
     LEGEND_SETS = [
