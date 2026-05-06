@@ -1,4 +1,21 @@
 dataset,group,group_color,modality,dotpath,unit,value
+Doctor Who fMRI (Seeliger et al.),Neuroimaging,#4472C4,fMRI,neuroimaging.fmri.total_h,h,28.5
+Doctor Who fMRI (Seeliger et al.),Neuroimaging,#4472C4,EEG,neuroimaging.eeg.total_h,h,
+Doctor Who fMRI (Seeliger et al.),Neuroimaging,#4472C4,MEG,neuroimaging.meg.total_h,h,
+Doctor Who fMRI (Seeliger et al.),Neuroimaging,#4472C4,iEEG,neuroimaging.ieeg.total_h,h,
+Doctor Who fMRI (Seeliger et al.),Stimuli,#538135,Images,naturalistic_stimuli.images.total_unique,#img,
+Doctor Who fMRI (Seeliger et al.),Stimuli,#538135,Video,naturalistic_stimuli.video.total_unique,h,23.7
+Doctor Who fMRI (Seeliger et al.),Stimuli,#538135,Audio,naturalistic_stimuli.audio.total_unique,h,
+Doctor Who fMRI (Seeliger et al.),Stimuli,#538135,Speech,naturalistic_stimuli.speech_listening.total_unique,h,
+Doctor Who fMRI (Seeliger et al.),Stimuli,#538135,Text,naturalistic_stimuli.text_reading.total_unique,h,
+Doctor Who fMRI (Seeliger et al.),Stimuli,#538135,Rest,naturalistic_stimuli.resting_state.total_unique,h,
+Doctor Who fMRI (Seeliger et al.),Responses,#C55A11,Tasks,responses.controlled_tasks.total_unique,#cond,
+Doctor Who fMRI (Seeliger et al.),Responses,#C55A11,Games,responses.game_actions.total_unique,h,
+Doctor Who fMRI (Seeliger et al.),Physiology,#7030A0,ECG,physiology.ecg.total_h,h,
+Doctor Who fMRI (Seeliger et al.),Physiology,#7030A0,Resp.,physiology.respiration.total_h,h,
+Doctor Who fMRI (Seeliger et al.),Physiology,#7030A0,PPG,physiology.plethysmograph.total_h,h,
+Doctor Who fMRI (Seeliger et al.),Physiology,#7030A0,EDA,physiology.eda.total_h,h,
+Doctor Who fMRI (Seeliger et al.),Physiology,#7030A0,Eye,physiology.eye_tracking.total_h,h,
 Natural Object Dataset (NOD-MEG+EEG),Neuroimaging,#4472C4,fMRI,neuroimaging.fmri.total_h,h,
 Natural Object Dataset (NOD-MEG+EEG),Neuroimaging,#4472C4,EEG,neuroimaging.eeg.total_h,h,24.0
 Natural Object Dataset (NOD-MEG+EEG),Neuroimaging,#4472C4,MEG,neuroimaging.meg.total_h,h,25.0
@@ -71,13 +88,13 @@ CNeuroMod,Neuroimaging,#4472C4,fMRI,neuroimaging.fmri.total_h,h,542.1
 CNeuroMod,Neuroimaging,#4472C4,EEG,neuroimaging.eeg.total_h,h,
 CNeuroMod,Neuroimaging,#4472C4,MEG,neuroimaging.meg.total_h,h,
 CNeuroMod,Neuroimaging,#4472C4,iEEG,neuroimaging.ieeg.total_h,h,
-CNeuroMod,Stimuli,#538135,Images,naturalistic_stimuli.images.total_unique,#img,
+CNeuroMod,Stimuli,#538135,Images,naturalistic_stimuli.images.total_unique,#img,4320.0
 CNeuroMod,Stimuli,#538135,Video,naturalistic_stimuli.video.total_unique,h,72.3
 CNeuroMod,Stimuli,#538135,Audio,naturalistic_stimuli.audio.total_unique,h,
 CNeuroMod,Stimuli,#538135,Speech,naturalistic_stimuli.speech_listening.total_unique,h,
 CNeuroMod,Stimuli,#538135,Text,naturalistic_stimuli.text_reading.total_unique,h,
 CNeuroMod,Stimuli,#538135,Rest,naturalistic_stimuli.resting_state.total_unique,h,7.5
-CNeuroMod,Responses,#C55A11,Tasks,responses.controlled_tasks.total_unique,#cond,4341.0
+CNeuroMod,Responses,#C55A11,Tasks,responses.controlled_tasks.total_unique,#cond,21.0
 CNeuroMod,Responses,#C55A11,Games,responses.game_actions.total_unique,h,
 CNeuroMod,Physiology,#7030A0,ECG,physiology.ecg.total_h,h,197.0
 CNeuroMod,Physiology,#7030A0,Resp.,physiology.respiration.total_h,h,197.0

@@ -1,5 +1,8 @@
 name: CNeuroMod
 naturalistic_stimuli:
+  images:
+    per_subject_unique: 4320
+    total_unique: 4320
   resting_state:
     per_subject_unique: 1.25
     total_unique: 7.5
@@ -25,6 +28,6 @@ physiology:
     total_h: 197.0
 responses:
   controlled_tasks:
-    per_subject_unique: 4341
-    total_unique: 4341
+    per_subject_unique: 21
+    total_unique: 21
 subjects_n: 6

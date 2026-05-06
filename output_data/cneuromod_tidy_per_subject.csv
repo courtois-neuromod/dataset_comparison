@@ -54,13 +54,13 @@ things,Neuroimaging,#4472C4,fMRI,neuroimaging.fmri.per_subject_h,h,16.4
 things,Neuroimaging,#4472C4,EEG,neuroimaging.eeg.per_subject_h,h,
 things,Neuroimaging,#4472C4,MEG,neuroimaging.meg.per_subject_h,h,
 things,Neuroimaging,#4472C4,iEEG,neuroimaging.ieeg.per_subject_h,h,
-things,Stimuli,#538135,Images,naturalistic_stimuli.images.per_subject_unique,#img,
+things,Stimuli,#538135,Images,naturalistic_stimuli.images.per_subject_unique,#img,4320.0
 things,Stimuli,#538135,Video,naturalistic_stimuli.video.per_subject_unique,h,
 things,Stimuli,#538135,Audio,naturalistic_stimuli.audio.per_subject_unique,h,
 things,Stimuli,#538135,Speech,naturalistic_stimuli.speech_listening.per_subject_unique,h,
 things,Stimuli,#538135,Text,naturalistic_stimuli.text_reading.per_subject_unique,h,
 things,Stimuli,#538135,Rest,naturalistic_stimuli.resting_state.per_subject_unique,h,
-things,Responses,#C55A11,Tasks,responses.controlled_tasks.per_subject_unique,#cond,4320.0
+things,Responses,#C55A11,Tasks,responses.controlled_tasks.per_subject_unique,#cond,
 things,Responses,#C55A11,Games,responses.game_actions.per_subject_unique,h,
 things,Physiology,#7030A0,ECG,physiology.ecg.per_subject_h,h,
 things,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,

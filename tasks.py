@@ -101,18 +101,6 @@ def run_cneuromod_tables(c):
         print(f"Saved {len(df)} rows to {out_path.name}")
 
 
-@task(pre=[run_tables, run_cneuromod_tables])
-def run_figures(c):
-    """Generate figures from the dataset YAML files using notebooks."""
-    from airoh.utils import run_notebooks as airoh_run_notebooks, ensure_dir_exist
-
-    notebooks_dir = Path(c.config.get("notebooks_dir"))
-    output_dir = Path(c.config.get("output_data_dir")).resolve()
-
-    ensure_dir_exist(c, "output_data_dir")
-    airoh_run_notebooks(c, notebooks_dir, output_dir, keys=["source_data_dir", "output_data_dir"])
-
-
 @task(pre=[fetch])
 def run_cneuromod_citations(c):
     """Parse cneuromod_references.bib and save a tidy table of papers using CNeuroMod data, by year and type."""
@@ -136,6 +124,18 @@ def run_cneuromod_citations(c):
     df = parse_bib_to_table(bib_path)
     df.to_csv(out_path, index=False)
     print(f"Saved {len(df)} rows to {out_path.name}")
+
+
+@task(pre=[run_tables, run_cneuromod_tables, run_cneuromod_citations])
+def run_figures(c):
+    """Generate figures from the dataset YAML files using notebooks."""
+    from airoh.utils import run_notebooks as airoh_run_notebooks, ensure_dir_exist
+
+    notebooks_dir = Path(c.config.get("notebooks_dir"))
+    output_dir = Path(c.config.get("output_data_dir")).resolve()
+
+    ensure_dir_exist(c, "output_data_dir")
+    airoh_run_notebooks(c, notebooks_dir, output_dir, keys=["source_data_dir", "output_data_dir"])
 
 
 @task(pre=[run_cneuromod_tables, run_cneuromod_citations])
