@@ -183,6 +183,16 @@ def make_neuroimaging_depthvsbreadth(pivot_per_subject, pivot_total, datasets_li
     x_min = min(p[1] for p in points)
     x_max = max(p[1] for p in points)
     x_pad = np.linspace(x_min * 0.4, x_max * 2.5, 200)
+
+    # Gray gradient bands — darker where total neuroimaging hours are lower
+    iso_levels = [50, 200, 1000, 5000, 10000]
+    band_alphas = [0.18, 0.13, 0.08, 0.05, 0.02]
+    ax.fill_between(x_pad, 1e-3, iso_levels[0] / x_pad,
+                    color="black", alpha=band_alphas[0], zorder=0)
+    for i in range(len(iso_levels) - 1):
+        ax.fill_between(x_pad, iso_levels[i] / x_pad, iso_levels[i + 1] / x_pad,
+                        color="black", alpha=band_alphas[i + 1], zorder=0)
+
     for H in [50, 200, 1000, 5000, 10000]:
         label = f"{H}h" if H < 1000 else f"{H // 1000}kh"
         y_iso = H / x_pad
@@ -207,6 +217,10 @@ def make_neuroimaging_depthvsbreadth(pivot_per_subject, pivot_total, datasets_li
 
     ax.set_xscale("log")
     ax.set_yscale("log")
+    y_vals = [n_sub for _, _, n_sub in points]
+    x_vals = [x for _, x, _ in points]
+    ax.set_xlim(min(x_vals) * 0.3, max(x_vals) * 3)
+    ax.set_ylim(min(y_vals) * 0.3, max(y_vals) * 3)
     ax.set_xlabel("Neuroimaging hours per subject (fMRI + EEG + MEG + iEEG)", fontsize=10)
     ax.set_ylabel("Number of subjects", fontsize=10)
     ax.set_title("Neuroimaging depth vs. breadth", fontsize=12, fontweight="bold")
