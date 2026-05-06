@@ -129,7 +129,7 @@ def make_bubble_chart(column_groups, pivot, datasets_list, title, out_path,
     print(f"Saved {out_path.name}")
 
 
-def make_fmri_scatter(pivot_per_subject, pivot_total, datasets_list, out_path,
+def make_neuroimaging_depthvsbreadth(pivot_per_subject, pivot_total, datasets_list, out_path,
                       highlight="CNeuroMod"):
     """Scatter plot: neuroimaging hours per subject (x) vs number of subjects (y).
 
@@ -183,7 +183,7 @@ def make_fmri_scatter(pivot_per_subject, pivot_total, datasets_list, out_path,
     x_min = min(p[1] for p in points)
     x_max = max(p[1] for p in points)
     x_pad = np.linspace(x_min * 0.4, x_max * 2.5, 200)
-    for H in [50, 200, 1000, 5000]:
+    for H in [50, 200, 1000, 5000, 10000]:
         label = f"{H}h" if H < 1000 else f"{H // 1000}kh"
         y_iso = H / x_pad
         ax.plot(x_pad, y_iso, color="grey", linewidth=0.7,
@@ -205,6 +205,7 @@ def make_fmri_scatter(pivot_per_subject, pivot_total, datasets_list, out_path,
                     fontweight="bold" if is_highlight else "normal",
                     color=color, zorder=5)
 
+    ax.set_xscale("log")
     ax.set_yscale("log")
     ax.set_xlabel("Neuroimaging hours per subject (fMRI + EEG + MEG + iEEG)", fontsize=10)
     ax.set_ylabel("Number of subjects", fontsize=10)
