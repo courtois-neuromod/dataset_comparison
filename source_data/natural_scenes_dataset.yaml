@@ -1,4 +1,5 @@
 name: Natural Scenes Dataset (NSD)
+short_name: NSD
 reference: https://doi.org/10.1038/s41593-021-00962-x
 subjects_n: 8
 
@@ -7,20 +8,24 @@ neuroimaging:
     total_h: 284.0
     per_subject_h: 35.5
 
-naturalistic_stimuli:
+passive:
   resting_state:
     total_unique: 18.7
     per_subject_unique: 2.3
+    total_with_repetition: 18.7
+    per_subject_with_repetition: 2.3
   images:
     total_unique: 70566
     per_subject_unique: 10000
     total_with_repetition: 213000
     per_subject_with_repetition: 26625
 
-responses:
-  controlled_tasks:
-    total_unique: 2
-    per_subject_unique: 2
+active:
+  controlled:
+    total_unique: 1.0
+    per_subject_unique: 1.0
+    total_with_repetition: 284.0
+    per_subject_with_repetition: 35.5
 
 physiology:
   eye_tracking:

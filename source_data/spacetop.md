@@ -157,6 +157,37 @@ Source: Table 4, pp. 8–9; task descriptions pp. 5–12.
 
 ---
 
+## active.controlled
+
+### total_unique: 1.57 | per_subject_unique: 1.57
+### total_with_repetition: 293.9 | per_subject_with_repetition: 2.91
+
+Four controlled experimental tasks; durations from TR counts in Fig. 3 (TR = 0.46 s).
+
+**Unique** counts each task once regardless of how many sessions or subjects ran it. task-social uses 3 sessions per subject (ses-01, ses-03, ses-04) but all three repeat the same 18-condition design, so unique = 1 session. task-fractional assigns each subject 2 of 4 subtasks but all subtasks share the same task environment, so unique = 2-subtask duration. All 101 subjects run the same task environment, so total_unique = per_subject_unique.
+
+| Task | Unique runs | Unique duration | With-rep runs | With-rep duration |
+|---|---|---|---|---|
+| task-social | 6 × 872 TR | 2,407 s = 0.67 h | 18 × 872 TR | 7,220 s = 2.006 h |
+| task-faces | 3 × 926 TR | 1,278 s = 0.355 h | same | same |
+| task-shortvideo | 1 × 1,616 TR | 743 s = 0.206 h | same | same |
+| task-fractional | 2 × 1,323 TR | 1,217 s = 0.338 h | same | same |
+| **Total** | | **5,645 s ≈ 1.57 h** | | **10,459 s ≈ 2.91 h** |
+
+> "In total, each run was designed to last 6 minutes and 41 seconds, i.e., 872 TRs."
+
+Source: Multimodal negative affect task, p. 6.
+
+> "The three tasks were conducted repeatedly on average, one week apart across three sessions."
+
+Source: Multimodal negative affect task, p. 5 (justifying 3-session repetition counted once for unique).
+
+Naturalistic tasks (task-alignvideo, task-narratives) are counted under `passive.*`, not here.
+
+total_with_repetition: 2.91 × 101 = **293.9 h**.
+
+---
+
 ## physiology.eda
 
 ### total_h: 585.8 | per_subject_h: 5.8

@@ -31,19 +31,19 @@ Derived: 35.5 h/subject × 8 subjects = 284 h. This covers the core NSD fMRI ses
 
 ---
 
-## naturalistic_stimuli.resting_state
+## passive.resting_state
 
-### per_subject_unique: 2.3, total_unique: 18.7
+### per_subject_unique: 2.3, total_unique: 18.7, per_subject_with_repetition: 2.3, total_with_repetition: 18.7
 
 > "**substantial amounts of resting-state data (minimum 100 min per participant)**" (p. 119)
 
 > Fig. 2b caption: resting-state data "totaling **100 or 180 min per participant**."
 
-Four participants who completed all 40 sessions received 180 min of resting-state scans; four partial completers received 100 min. Average = (4 × 180 + 4 × 100) / 8 = 140 min = 2.33 h per subject; total = 2.33 × 8 ≈ 18.7 h. Values are reported as averages across participants.
+Four participants who completed all 40 sessions received 180 min of resting-state scans; four partial completers received 100 min. Average = (4 × 180 + 4 × 100) / 8 = 140 min = 2.33 h per subject; total = 2.33 × 8 ≈ 18.7 h. Values are reported as averages across participants. No meaningful unique/repetition distinction applies to resting state, so `with_repetition` equals `unique`.
 
 ---
 
-## naturalistic_stimuli.images
+## passive.images
 
 ### total_unique: 70,566
 
@@ -71,15 +71,17 @@ At full completion (40 sessions × 750 trials = 30,000 trials per participant); 
 
 ---
 
-## responses.controlled_tasks
+## active.controlled
 
-### total_unique: 2, per_subject_unique: 2
-
-A continuous recognition memory task was used throughout as an attention control. It yields two conditions of interest that can be meaningfully contrasted: (1) **old** — successful recognition of a previously seen image (hit), and (2) **new** — correct identification of an image as unseen (correct rejection).
+### per_subject_unique: 1.0, total_unique: 1.0
 
 > "we incorporated a **continuous recognition task** in which participants were instructed to indicate whether they have seen each presented image at any point in the past." (p. 117)
 
-The old/new distinction maps directly onto a memory retrieval vs. novel encoding contrast. The task was not designed as a primary experimental manipulation but as an attention check; nonetheless, the two conditions represent distinct and analyzable cognitive states.
+The recognition paradigm (old/new judgment) is identical across all NSD sessions for all subjects. Per the schema rule for controlled tasks, the same paradigm repeated across sessions counts once: one session = 1.0 h of unique task content. All subjects run the same paradigm, so `total_unique = per_subject_unique = 1.0 h`.
+
+### per_subject_with_repetition: 35.5, total_with_repetition: 284.0
+
+The recognition task runs throughout all NSD fMRI sessions. Per-subject average is 35.5 h (see `neuroimaging.fmri`); total across 8 subjects is 284.0 h.
 
 ---
 

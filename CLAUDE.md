@@ -8,7 +8,7 @@ This project systematically compares dense neuroAI datasets in terms of the volu
 
 **Package manager:** `uv` (see `pyproject.toml`).
 
-**Pipeline:** `fetch` validates all YAML files in `source_data/` against `source_data/schema.json`; `run-tables` runs `analysis/tables.py` to produce `output_data/datasets_tidy_*.csv`; `run-figures` executes notebooks in `notebooks/` (reading the tidy CSVs) to produce figures in `output_data/`. All source data is manually curated and version-controlled via git.
+**Pipeline:** `fetch` validates all YAML files in `source_data/` against the JSON Schema at `source_data/cneuromod/docs/schema.json`; `run-tables` runs `analysis/tables.py` to produce `output_data/datasets_tidy_*.csv`; `run-figures` executes notebooks in `notebooks/` (reading the tidy CSVs) to produce figures in `output_data/`. All source data is manually curated and version-controlled via git.
 
 ## Dataset Assets
 
@@ -67,7 +67,7 @@ invoke --list             # Show all available tasks
 - `invoke.yaml` — all path config (`output_data_dir`, `source_data_dir`, `notebooks_dir`)
 - `tasks.py` — project-specific invoke tasks; imports reusable tasks from `airoh.utils`
 - `analysis/tables.py` — defines `COLUMN_GROUPS` (field registry with labels, dotpaths, units, colors) and `build_tidy_table(source_dir)` which produces the long-format DataFrame; run via `run-tables`
-- `source_data/schema.json` — JSON Schema for dataset YAML files; edit here to add new modalities or fields
+- `source_data/cneuromod/docs/schema.json` — authoritative JSON Schema for dataset YAML files; edit here to add new modalities or fields
 - `notebooks/` — Jupyter notebooks executed by `run_notebooks` via `airoh.utils.run_notebooks`; notebooks receive `OUTPUT_DATA_DIR` as an environment variable and read `datasets_tidy.csv` from it
 - `source_data/CONTENT.md` and `output_data/CONTENT.md` — authoritative docs for what each data folder contains; update these when data assets change, do not duplicate their content elsewhere
 
@@ -83,10 +83,28 @@ invoke --list             # Show all available tasks
 
 **Task parameters:** `run-{name}` tasks should expose chunk or subset parameters (e.g. a dataset name) so that individual pieces can be rerun in isolation. They should also support a `smoke` flag for a fast minimal run useful for testing the pipeline end-to-end without running the full analysis.
 
-**Adding a new schema field:** edit `source_data/schema.json`, then update any existing YAML files that should carry the new field.
+**Adding a new schema field:** edit `source_data/cneuromod/docs/schema.json`, then update any existing YAML files that should carry the new field. Note: that file lives inside a git submodule — changes must go through the `cneuromod.all` repository.
 
 **Adding a new analysis step:** add a function to `analysis/`, add a `run-{name}` task and a matching `clean-{name}` task in `tasks.py`, wire both into the top-level `run` and `clean` tasks via `pre=` chains, and create or extend a notebook in `notebooks/` for visualization.
 
 **Evolving CLAUDE.md:** As the project grows, update this file to document the specific analysis steps, data sources, and decisions for this project. The airoh conventions above (idempotent tasks, `run-{name}`/`clean-{name}` pairs, analysis-in-code/visualization-in-notebooks) apply for the lifetime of the project.
 
 **README.md** is the user-facing documentation for this project. Any structural or workflow changes — new tasks, renamed folders, updated commands, new dependencies — must be reflected there. For data folder contents, point to `source_data/CONTENT.md` and `output_data/CONTENT.md` rather than duplicating their content inline.
+
+## Schema field semantics
+
+The schema defines two field types:
+
+- **`recording_hours`** (`total_h`, `per_subject_h`): used for neural recordings and physiology — modalities where repetition is inherent and there is no notion of "unique content" (e.g. fMRI, EEG, EDA).
+- **`stimulus_modality`** (`total_unique`, `per_subject_unique`, `total_with_repetition`, `per_subject_with_repetition`): used for all stimulus and task fields — both `passive.*` and `active.controlled`.
+
+**Unique vs. with_repetition:**
+- `unique` counts the unique stimulus/task content once, excluding any repetition of identical content whether within or across subjects. Example: 10 subjects each doing the same 10-minute controlled task → `total_unique = 10 min`.
+- `with_repetition` counts all exposures including repetitions. Same example → `total_with_repetition = 100 min`.
+
+**Rules for computing `unique` in controlled tasks (`active.controlled`):**
+1. If the same experimental paradigm (same condition set) is repeated across sessions for the same subject, count it once.
+2. If different subjects receive different subsets of tasks that share the same task environment (e.g. fractional subtask designs), treat the per-subject subset as the unique content — do not sum across subtask variants.
+3. When all subjects run the same task environment, `total_unique = per_subject_unique` (no unique content is added by running more subjects).
+
+**`source_data/cneuromod` is a git submodule** pointing to a separate project (`cneuromod.all`). Never modify any files inside `source_data/cneuromod/` — changes must go through that project's own repository. The submodule's `dataset_info.yaml` files use their own schema and are read by `aggregate_cneuromod_yaml` / `load_cneuromod_datasets` in `analysis/tables.py`.

@@ -130,32 +130,50 @@ def make_bubble_chart(column_groups, pivot, datasets_list, title, out_path,
 
 
 def make_neuroimaging_depthvsbreadth(pivot_per_subject, pivot_total, datasets_list, out_path,
-                      highlight="CNeuroMod"):
+                      highlight="CNeuroMod", column_groups_per_subject=None,
+                      column_groups_total=None):
     """Scatter plot: neuroimaging hours per subject (x) vs number of subjects (y).
 
-    Neuroimaging hours sum fMRI, EEG, MEG, and iEEG. Iso-hours lines show
-    constant total neuroimaging hours: n_subjects = H / hours_per_subject.
+    Neuroimaging hours sum all modalities in the "Neuroimaging" column group.
+    Iso-hours lines show constant total neuroimaging hours:
+    n_subjects = H / hours_per_subject.
 
     Parameters
     ----------
-    pivot_per_subject : DataFrame indexed by dataset, columns are dotpaths
-    pivot_total       : DataFrame indexed by dataset, columns are dotpaths
-    datasets_list     : list of dataset names
-    out_path          : Path to save the PNG
-    highlight         : dataset name to highlight (drawn larger, distinct color)
+    pivot_per_subject        : DataFrame indexed by dataset, columns are dotpaths
+    pivot_total              : DataFrame indexed by dataset, columns are dotpaths
+    datasets_list            : list of dataset names
+    out_path                 : Path to save the PNG
+    highlight                : dataset name to highlight (drawn larger, distinct color)
+    column_groups_per_subject: column_groups list used to derive per-subject paths/label
+    column_groups_total      : column_groups list used to derive total paths
     """
-    PER_SUBJECT_PATHS = [
+    def _neuro_fields(column_groups):
+        if column_groups is None:
+            return []
+        for gname, _color, fields in column_groups:
+            if gname == "Neuroimaging":
+                return fields
+        return []
+
+    neuro_ps = _neuro_fields(column_groups_per_subject)
+    neuro_tot = _neuro_fields(column_groups_total)
+
+    PER_SUBJECT_PATHS = [path for _, path, _ in neuro_ps] or [
         "neuroimaging.fmri.per_subject_h",
         "neuroimaging.eeg.per_subject_h",
         "neuroimaging.meg.per_subject_h",
         "neuroimaging.ieeg.per_subject_h",
     ]
-    TOTAL_PATHS = [
+    TOTAL_PATHS = [path for _, path, _ in neuro_tot] or [
         "neuroimaging.fmri.total_h",
         "neuroimaging.eeg.total_h",
         "neuroimaging.meg.total_h",
         "neuroimaging.ieeg.total_h",
     ]
+    modality_labels = " + ".join(label for label, _, _ in neuro_ps) if neuro_ps \
+        else "fMRI + EEG + MEG + iEEG"
+    xlabel = f"Neuroimaging hours per subject ({modality_labels})"
 
     def _sum_paths(pivot, ds, paths):
         total = 0.0
@@ -179,10 +197,16 @@ def make_neuroimaging_depthvsbreadth(pivot_per_subject, pivot_total, datasets_li
 
     fig, ax = plt.subplots(figsize=(6, 5))
 
+    y_vals = [n_sub for _, _, n_sub in points]
+    x_vals = [x for _, x, _ in points]
+    ax.set_xscale("log")
+    ax.set_yscale("log")
+    ax.set_xlim(min(x_vals) * 0.3, max(x_vals) * 3)
+    ax.set_ylim(min(y_vals) * 0.3, max(y_vals) * 3)
+
     # Iso-hours hyperbolas: n_subjects = H / hours_per_subject
-    x_min = min(p[1] for p in points)
-    x_max = max(p[1] for p in points)
-    x_pad = np.linspace(x_min * 0.4, x_max * 2.5, 200)
+    x_lo, x_hi = ax.get_xlim()
+    x_pad = np.geomspace(x_lo, x_hi, 300)
 
     # Gray gradient bands — darker where total neuroimaging hours are lower
     iso_levels = [50, 200, 1000, 5000, 10000]
@@ -214,14 +238,7 @@ def make_neuroimaging_depthvsbreadth(pivot_per_subject, pivot_total, datasets_li
                     ha="center", va=va, fontsize=8,
                     fontweight="bold" if is_highlight else "normal",
                     color=color, zorder=5)
-
-    ax.set_xscale("log")
-    ax.set_yscale("log")
-    y_vals = [n_sub for _, _, n_sub in points]
-    x_vals = [x for _, x, _ in points]
-    ax.set_xlim(min(x_vals) * 0.3, max(x_vals) * 3)
-    ax.set_ylim(min(y_vals) * 0.3, max(y_vals) * 3)
-    ax.set_xlabel("Neuroimaging hours per subject (fMRI + EEG + MEG + iEEG)", fontsize=10)
+    ax.set_xlabel(xlabel, fontsize=10)
     ax.set_ylabel("Number of subjects", fontsize=10)
     ax.set_title("Neuroimaging depth vs. breadth", fontsize=12, fontweight="bold")
     ax.spines["top"].set_visible(False)

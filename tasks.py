@@ -13,7 +13,7 @@ def fetch(c):
     ensure_submodule(c, "source_data/cneuromod", recursive=False)
 
     source_dir = Path(c.config.get("source_data_dir"))
-    schema_file = source_dir / "schema.json"
+    schema_file = source_dir / "cneuromod" / "docs" / "schema.json"
     with open(schema_file) as f:
         schema = json.load(f)
 
@@ -36,6 +36,25 @@ def fetch(c):
     if errors:
         raise SystemExit(f"Validation failed: {', '.join(errors)}")
     print(f"All {len(yaml_files)} dataset(s) valid.")
+
+    cneuromod_dir = source_dir / "cneuromod"
+    cneuromod_yaml_files = sorted(cneuromod_dir.glob("*/dataset_info.yaml"))
+    if cneuromod_yaml_files:
+        cneuromod_errors = []
+        for yaml_file in cneuromod_yaml_files:
+            with open(yaml_file) as f:
+                data = yaml.safe_load(f)
+            stats = data.get("stats", {})
+            stats.setdefault("name", yaml_file.parent.name)
+            try:
+                jsonschema.validate(stats, schema)
+                print(f"  OK  cneuromod/{yaml_file.parent.name}/dataset_info.yaml")
+            except jsonschema.ValidationError as e:
+                print(f"  ERR cneuromod/{yaml_file.parent.name}/dataset_info.yaml: {e.message}")
+                cneuromod_errors.append(str(yaml_file))
+        if cneuromod_errors:
+            raise SystemExit(f"CNeuroMod validation failed: {', '.join(cneuromod_errors)}")
+        print(f"All {len(cneuromod_yaml_files)} CNeuroMod dataset(s) valid.")
 
 
 @task(pre=[fetch])

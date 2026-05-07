@@ -1,4 +1,5 @@
 name: Spacetop
+short_name: Spacetop
 reference: https://doi.org/10.1038/s41597-025-05154-x
 subjects_n: 101
 
@@ -7,7 +8,7 @@ neuroimaging:
     total_h: 606.0
     per_subject_h: 6.0
 
-naturalistic_stimuli:
+passive:
   video:
     total_unique: 1.44
     per_subject_unique: 1.44
@@ -24,10 +25,12 @@ naturalistic_stimuli:
     total_with_repetition: 20.2
     per_subject_with_repetition: 0.20
 
-responses:
-  controlled_tasks:
-    total_unique: 739
-    per_subject_unique: 554
+active:
+  controlled:
+    total_unique: 1.57
+    per_subject_unique: 1.57
+    total_with_repetition: 293.9
+    per_subject_with_repetition: 2.91
 
 physiology:
   eda:

@@ -10,17 +10,17 @@ COLUMN_GROUPS_PER_SUBJECT = [
         ("MEG",   "neuroimaging.meg.per_subject_h",   "h"),
         ("iEEG",  "neuroimaging.ieeg.per_subject_h",  "h"),
     ]),
-    ("Stimuli", "#538135", [
-        ("Images", "naturalistic_stimuli.images.per_subject_unique",           "#img"),
-        ("Video",  "naturalistic_stimuli.video.per_subject_unique",            "h"),
-        ("Audio",  "naturalistic_stimuli.audio.per_subject_unique",            "h"),
-        ("Speech", "naturalistic_stimuli.speech_listening.per_subject_unique", "h"),
-        ("Text",   "naturalistic_stimuli.text_reading.per_subject_unique",     "h"),
-        ("Rest",   "naturalistic_stimuli.resting_state.per_subject_unique",    "h"),
+    ("Passive", "#538135", [
+        ("Images", "passive.images.per_subject_unique",           "#img"),
+        ("Video",  "passive.video.per_subject_unique",            "h"),
+        ("Audio",  "passive.audio.per_subject_unique",            "h"),
+        ("Speech", "passive.speech_listening.per_subject_unique", "h"),
+        ("Text",   "passive.text_reading.per_subject_unique",     "h"),
+        ("Rest",   "passive.resting_state.per_subject_unique",    "h"),
     ]),
-    ("Responses", "#C55A11", [
-        ("Tasks", "responses.controlled_tasks.per_subject_unique", "#cond"),
-        ("Games", "responses.game_actions.per_subject_unique",     "h"),
+    ("Active", "#C55A11", [
+        ("Controlled", "active.controlled.per_subject_h",         "h"),
+        ("Games",      "active.game_actions.per_subject_unique",  "h"),
     ]),
     ("Physiology", "#7030A0", [
         ("ECG",   "physiology.ecg.per_subject_h",            "h"),
@@ -38,17 +38,17 @@ COLUMN_GROUPS_TOTAL = [
         ("MEG",   "neuroimaging.meg.total_h",   "h"),
         ("iEEG",  "neuroimaging.ieeg.total_h",  "h"),
     ]),
-    ("Stimuli", "#538135", [
-        ("Images", "naturalistic_stimuli.images.total_unique",           "#img"),
-        ("Video",  "naturalistic_stimuli.video.total_unique",            "h"),
-        ("Audio",  "naturalistic_stimuli.audio.total_unique",            "h"),
-        ("Speech", "naturalistic_stimuli.speech_listening.total_unique", "h"),
-        ("Text",   "naturalistic_stimuli.text_reading.total_unique",     "h"),
-        ("Rest",   "naturalistic_stimuli.resting_state.total_unique",    "h"),
+    ("Passive", "#538135", [
+        ("Images", "passive.images.total_unique",           "#img"),
+        ("Video",  "passive.video.total_unique",            "h"),
+        ("Audio",  "passive.audio.total_unique",            "h"),
+        ("Speech", "passive.speech_listening.total_unique", "h"),
+        ("Text",   "passive.text_reading.total_unique",     "h"),
+        ("Rest",   "passive.resting_state.total_unique",    "h"),
     ]),
-    ("Responses", "#C55A11", [
-        ("Tasks", "responses.controlled_tasks.total_unique", "#cond"),
-        ("Games", "responses.game_actions.total_unique",     "h"),
+    ("Active", "#C55A11", [
+        ("Controlled", "active.controlled.total_h",         "h"),
+        ("Games",      "active.game_actions.total_unique",  "h"),
     ]),
     ("Physiology", "#7030A0", [
         ("ECG",   "physiology.ecg.total_h",            "h"),
@@ -75,7 +75,7 @@ def _build_rows(datasets: list, column_groups: list) -> list:
             for label, dotpath, unit in fields:
                 value = _get_nested(ds, dotpath)
                 rows.append({
-                    "dataset": ds.get("name", "?"),
+                    "dataset": ds.get("short_name", ds.get("name", "?")),
                     "group": group_name,
                     "group_color": group_color,
                     "modality": label,

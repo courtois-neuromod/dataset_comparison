@@ -1,4 +1,5 @@
 name: Doctor Who fMRI (Seeliger et al.)
+short_name: Dr Who
 reference: https://doi.org/10.1038/s41597-019-0172-7
 subjects_n: 1
 
@@ -7,7 +8,7 @@ neuroimaging:
     total_h: 28.5
     per_subject_h: 28.5
 
-naturalistic_stimuli:
+passive:
   video:
     total_unique: 23.7
     per_subject_unique: 23.7
