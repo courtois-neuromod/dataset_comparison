@@ -1,0 +1,26 @@
+name: OmniMouse
+short_name: OmniMouse
+reference: https://arxiv.org/abs/2604.18827
+subjects_n: 73
+
+neuroimaging:
+  calcium_imaging:
+    total_h: 557.6
+    per_subject_h: 7.6
+
+tasks:
+  images:
+    total_unique: 10769
+    per_subject_unique: 10418
+    total_with_repetition: 760521
+    per_subject_with_repetition: 10418
+  video:
+    total_unique: 6.6
+    per_subject_unique: 5.0
+    total_with_repetition: 367.6
+    per_subject_with_repetition: 5.0
+
+physiology:
+  eye_tracking:
+    total_h: 557.6
+    per_subject_h: 7.6
