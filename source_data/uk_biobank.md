@@ -6,11 +6,16 @@ Documentation: UK Biobank Brain Imaging Documentation v1.10, May 2024. Smith, Al
 
 ---
 
-## subjects_n: 67000
+## subjects_n: 94930
 
-> "v1.10 May 2024. Added 20k new subjects. Added HCP-style cortical surface modelling for rfMRI and tfMRI data, for all new and existing datasets. **67k subjects total** and 5k second-scans total." (Brain Imaging Documentation v1.10, Section 1.4)
+As of May 2026, the UK Biobank data fields report the following participant counts:
 
-Note: 5,000 of the 67,000 subjects also have a second imaging session (the "second-scan" substudy), which is not counted in subjects_n. The dataset spans participants aged 40–69 recruited across 22 centres in the UK.
+- **Field 20225** — Functional brain images (resting): **94,930 participants** — https://biobank.ctsu.ox.ac.uk/crystal/field.cgi?id=20225
+- **Field 20217** — Functional brain images (task): **80,662 participants** — https://biobank.ctsu.ox.ac.uk/crystal/field.cgi?id=20217
+
+`subjects_n` is set to 94,930, the number of subjects with resting-state fMRI data (the larger and primary fMRI measure). Note that 80,662 of these also have task fMRI; the remaining ~14,268 have resting fMRI only.
+
+For reference, the v1.10 May 2024 brain imaging documentation reported: "67k subjects total and 5k second-scans total." The current counts reflect ongoing data collection since that release.
 
 ---
 
@@ -28,9 +33,12 @@ Each subject undergoes both resting-state fMRI (rfMRI) and task fMRI (tfMRI) wit
 
 Combined fMRI per subject: 6 + 4 = 10 minutes = 10/60 ≈ 0.167 h.
 
-### total_h: 11167.0
+### total_h: 14871.0
 
-Derived: 67,000 subjects × 0.167 h/subject = 11,167 h. Calculated assuming all 67,000 subjects completed both rfMRI and tfMRI acquisitions (the protocol is fixed at 35 minutes total).
+Derived from the current UK Biobank participant counts (see `subjects_n` above):
+- 94,930 subjects × 6 min rfMRI = 569,580 min
+- 80,662 subjects × 4 min tfMRI = 322,648 min
+- Total = 892,228 min ÷ 60 = 14,871 h
 
 ---
 
@@ -42,7 +50,7 @@ Derived: 67,000 subjects × 0.167 h/subject = 11,167 h. Calculated assuming all 
 
 > "rfMRI Resting-state functional MRI timeseries data. Resting-state functional MRI measures changes in blood oxygenation associated with **intrinsic brain activity (i.e., in the absence of an explicit task or sensory stimulus)**." (Section 1.3)
 
-Per subject: 6 min = 0.1 h. Total unique: 67,000 × 0.1 = 6,700 h. Each subject's resting-state data is distinct (no shared stimulus content, so total_unique = total_with_repetition).
+Per subject: 6 min = 0.1 h. Total unique: 94,930 × 0.1 = 9,493 h. Each subject's resting-state data is distinct (no shared stimulus content, so total_unique = total_with_repetition).
 
 ### per_subject_with_repetition: 0.1, total_with_repetition: 6700.0
 
@@ -50,13 +58,25 @@ Each subject has one 6-minute resting-state scan. No within-subject repetition o
 
 ---
 
-## responses.controlled_tasks
+## active.controlled
 
-### total_unique: 2, per_subject_unique: 2
+### per_subject_unique: 0.067, per_subject_with_repetition: 0.067
+
+> "Task functional MRI … As for rfMRI, except: Duration: **4 minutes (332 timepoints)**." (Brain Imaging Documentation v1.10, Section 2.9)
+
+4 min = 4/60 ≈ 0.067 h per subject.
 
 > "The task is the Hariri faces/shapes 'emotion' task [Hariri et al., 2002, Barch et al., 2013], as implemented in the HCP, but with shorter overall duration and hence fewer total stimulus block repeats. The participants are presented with **blocks of trials and asked to decide either which of two faces** presented on the bottom of the screen **match the face at the top of the screen, or which of two shapes** presented at the bottom of the screen match the shape at the top of the screen. The faces have either angry or fearful expressions." (Section 2.9)
 
-Two distinct task conditions are experienced by participants: **faces** (emotion matching) and **shapes** (non-social shape matching). Five activation contrasts are derived analytically (Shapes, Faces, Shapes+Faces, Shapes-Faces, Faces-Shapes), but the experimental conditions are the two blocks.
+All subjects perform the identical task (same stimuli, same conditions), so `total_unique = per_subject_unique = 0.067 h`.
+
+### total_unique: 0.067
+
+All 80,662 subjects with task fMRI run the same paradigm — no unique content is added by additional subjects.
+
+### total_with_repetition: 5377.0
+
+80,662 subjects × 0.067 h/subject = 5,377 h.
 
 ---
 
