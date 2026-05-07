@@ -19,7 +19,7 @@ COLUMN_GROUPS_PER_SUBJECT = [
         ("Rest",   "passive.resting_state.per_subject_unique",    "h"),
     ]),
     ("Active", "#C55A11", [
-        ("Controlled", "active.controlled.per_subject_h",         "h"),
+        ("Controlled", "active.controlled.per_subject_unique", "h"),
         ("Games",      "active.game_actions.per_subject_unique",  "h"),
     ]),
     ("Physiology", "#7030A0", [
@@ -47,7 +47,7 @@ COLUMN_GROUPS_TOTAL = [
         ("Rest",   "passive.resting_state.total_unique",    "h"),
     ]),
     ("Active", "#C55A11", [
-        ("Controlled", "active.controlled.total_h",         "h"),
+        ("Controlled", "active.controlled.total_unique", "h"),
         ("Games",      "active.game_actions.total_unique",  "h"),
     ]),
     ("Physiology", "#7030A0", [

@@ -9,7 +9,7 @@ Dr Who,Passive,#538135,Audio,passive.audio.per_subject_unique,h,
 Dr Who,Passive,#538135,Speech,passive.speech_listening.per_subject_unique,h,
 Dr Who,Passive,#538135,Text,passive.text_reading.per_subject_unique,h,
 Dr Who,Passive,#538135,Rest,passive.resting_state.per_subject_unique,h,
-Dr Who,Active,#C55A11,Controlled,active.controlled.per_subject_h,h,
+Dr Who,Active,#C55A11,Controlled,active.controlled.per_subject_unique,h,
 Dr Who,Active,#C55A11,Games,active.game_actions.per_subject_unique,h,
 Dr Who,Physiology,#7030A0,ECG,physiology.ecg.per_subject_h,h,
 Dr Who,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,
@@ -26,7 +26,7 @@ NOD,Passive,#538135,Audio,passive.audio.per_subject_unique,h,
 NOD,Passive,#538135,Speech,passive.speech_listening.per_subject_unique,h,
 NOD,Passive,#538135,Text,passive.text_reading.per_subject_unique,h,
 NOD,Passive,#538135,Rest,passive.resting_state.per_subject_unique,h,
-NOD,Active,#C55A11,Controlled,active.controlled.per_subject_h,h,
+NOD,Active,#C55A11,Controlled,active.controlled.per_subject_unique,h,
 NOD,Active,#C55A11,Games,active.game_actions.per_subject_unique,h,
 NOD,Physiology,#7030A0,ECG,physiology.ecg.per_subject_h,h,
 NOD,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,
@@ -43,7 +43,7 @@ NSD,Passive,#538135,Audio,passive.audio.per_subject_unique,h,
 NSD,Passive,#538135,Speech,passive.speech_listening.per_subject_unique,h,
 NSD,Passive,#538135,Text,passive.text_reading.per_subject_unique,h,
 NSD,Passive,#538135,Rest,passive.resting_state.per_subject_unique,h,2.3
-NSD,Active,#C55A11,Controlled,active.controlled.per_subject_h,h,
+NSD,Active,#C55A11,Controlled,active.controlled.per_subject_unique,h,1.0
 NSD,Active,#C55A11,Games,active.game_actions.per_subject_unique,h,
 NSD,Physiology,#7030A0,ECG,physiology.ecg.per_subject_h,h,
 NSD,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,
@@ -60,7 +60,7 @@ Spacetop,Passive,#538135,Audio,passive.audio.per_subject_unique,h,
 Spacetop,Passive,#538135,Speech,passive.speech_listening.per_subject_unique,h,0.14
 Spacetop,Passive,#538135,Text,passive.text_reading.per_subject_unique,h,0.2
 Spacetop,Passive,#538135,Rest,passive.resting_state.per_subject_unique,h,
-Spacetop,Active,#C55A11,Controlled,active.controlled.per_subject_h,h,
+Spacetop,Active,#C55A11,Controlled,active.controlled.per_subject_unique,h,1.57
 Spacetop,Active,#C55A11,Games,active.game_actions.per_subject_unique,h,
 Spacetop,Physiology,#7030A0,ECG,physiology.ecg.per_subject_h,h,
 Spacetop,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,
@@ -77,7 +77,7 @@ UK Biobank,Passive,#538135,Audio,passive.audio.per_subject_unique,h,
 UK Biobank,Passive,#538135,Speech,passive.speech_listening.per_subject_unique,h,
 UK Biobank,Passive,#538135,Text,passive.text_reading.per_subject_unique,h,
 UK Biobank,Passive,#538135,Rest,passive.resting_state.per_subject_unique,h,0.1
-UK Biobank,Active,#C55A11,Controlled,active.controlled.per_subject_h,h,
+UK Biobank,Active,#C55A11,Controlled,active.controlled.per_subject_unique,h,0.067
 UK Biobank,Active,#C55A11,Games,active.game_actions.per_subject_unique,h,
 UK Biobank,Physiology,#7030A0,ECG,physiology.ecg.per_subject_h,h,
 UK Biobank,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,
@@ -94,7 +94,7 @@ CNeuroMod,Passive,#538135,Audio,passive.audio.per_subject_unique,h,
 CNeuroMod,Passive,#538135,Speech,passive.speech_listening.per_subject_unique,h,
 CNeuroMod,Passive,#538135,Text,passive.text_reading.per_subject_unique,h,
 CNeuroMod,Passive,#538135,Rest,passive.resting_state.per_subject_unique,h,1.25
-CNeuroMod,Active,#C55A11,Controlled,active.controlled.per_subject_h,h,
+CNeuroMod,Active,#C55A11,Controlled,active.controlled.per_subject_unique,h,16.919999999999998
 CNeuroMod,Active,#C55A11,Games,active.game_actions.per_subject_unique,h,
 CNeuroMod,Physiology,#7030A0,ECG,physiology.ecg.per_subject_h,h,65.0
 CNeuroMod,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,65.0
