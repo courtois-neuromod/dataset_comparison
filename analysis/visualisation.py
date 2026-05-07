@@ -62,17 +62,23 @@ def make_bubble_chart(column_groups, pivot, datasets_list, title, out_path,
         group_spans.append((group_name, color, start, len(all_cols) - 1))
     n_cols = len(all_cols)
 
-    if sort_by is None:
-        sort_by = next(
-            (p for _, p, _, _ in all_cols if "fmri" in p and "per_subject" in p),
-            None,
-        )
-    if sort_by and sort_by in pivot.columns:
-        datasets_sorted = sorted(
-            datasets_list,
-            key=lambda d: pivot.loc[d, sort_by] if d in pivot.index else 0,
-            reverse=True,
-        )
+    neuro_hour_paths = [
+        p for gname, _, fields in column_groups
+        for _, p, u in fields
+        if gname == "Neuroimaging" and u == "h"
+    ]
+
+    def _neuro_sum(ds):
+        total = 0.0
+        for p in (neuro_hour_paths if sort_by is None else [sort_by]):
+            if ds in pivot.index and p in pivot.columns:
+                v = pivot.loc[ds, p]
+                if pd.notna(v):
+                    total += float(v)
+        return total
+
+    if sort_by is None or sort_by in pivot.columns:
+        datasets_sorted = sorted(datasets_list, key=_neuro_sum, reverse=True)
     else:
         datasets_sorted = sorted(datasets_list)
     n_ds = len(datasets_sorted)
