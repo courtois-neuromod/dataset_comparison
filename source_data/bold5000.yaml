@@ -1,0 +1,30 @@
+name: BOLD5000
+short_name: BOLD5000
+reference: https://doi.org/10.1038/s41597-019-0052-3
+subjects_n: 4
+
+neuroimaging:
+  fmri:
+    total_h: 81.0
+    per_subject_h: 20.25
+
+tasks:
+  images:
+    total_unique: 4916
+    per_subject_unique: 4916
+    total_with_repetition: 21016
+    per_subject_with_repetition: 5254
+  controlled:
+    total_h: 2.4
+    per_subject_h: 0.6
+  contrasts:
+    total: 3
+    per_subject: 3
+
+physiology:
+  plethysmograph:
+    total_h: 81.0
+    per_subject_h: 20.25
+  respiration:
+    total_h: 81.0
+    per_subject_h: 20.25

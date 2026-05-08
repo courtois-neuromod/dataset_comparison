@@ -1,0 +1,27 @@
+name: Open multimodal iEEG-fMRI dataset (naturalistic film)
+short_name: iEEG-fMRI film
+reference: https://doi.org/10.1038/s41597-022-01173-0
+subjects_n: 63
+
+neuroimaging:
+  fmri:
+    total_h: 3.25
+    per_subject_h: 0.05
+  ieeg:
+    total_h: 8.03
+    per_subject_h: 0.13
+
+tasks:
+  video:
+    total_unique: 0.11
+    per_subject_unique: 0.11
+    total_with_repetition: 8.78
+    per_subject_with_repetition: 0.14
+  speech_listening:
+    total_unique: 0.11
+    per_subject_unique: 0.11
+    total_with_repetition: 8.78
+    per_subject_with_repetition: 0.14
+  resting_state:
+    total_h: 2.50
+    per_subject_h: 0.04

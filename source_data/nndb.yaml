@@ -1,0 +1,21 @@
+name: Naturalistic Neuroimaging Database (NNDb)
+short_name: NNDb
+reference: https://doi.org/10.1038/s41597-020-00680-2
+subjects_n: 86
+
+neuroimaging:
+  fmri:
+    total_h: 160.59
+    per_subject_h: 1.87
+
+tasks:
+  video:
+    total_unique: 19.44
+    per_subject_unique: 1.87
+    total_with_repetition: 160.59
+    per_subject_with_repetition: 1.87
+  speech_listening:
+    total_unique: 19.44
+    per_subject_unique: 1.87
+    total_with_repetition: 160.59
+    per_subject_with_repetition: 1.87
