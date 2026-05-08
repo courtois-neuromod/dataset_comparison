@@ -10,17 +10,16 @@ COLUMN_GROUPS_PER_SUBJECT = [
         ("MEG",   "neuroimaging.meg.per_subject_h",   "h"),
         ("iEEG",  "neuroimaging.ieeg.per_subject_h",  "h"),
     ]),
-    ("Passive", "#538135", [
-        ("Images", "passive.images.per_subject_unique",           "#img"),
-        ("Video",  "passive.video.per_subject_unique",            "h"),
-        ("Audio",  "passive.audio.per_subject_unique",            "h"),
-        ("Speech", "passive.speech_listening.per_subject_unique", "h"),
-        ("Text",   "passive.text_reading.per_subject_unique",     "h"),
-        ("Rest",   "passive.resting_state.per_subject_unique",    "h"),
-    ]),
-    ("Active", "#C55A11", [
-        ("Controlled", "active.controlled.per_subject_unique", "h"),
-        ("Games",      "active.game_actions.per_subject_unique",  "h"),
+    ("Tasks", "#538135", [
+        ("Images", "tasks.images.per_subject_unique",           "#img"),
+        ("Video",  "tasks.video.per_subject_unique",            "h"),
+        ("Audio",  "tasks.audio.per_subject_unique",            "h"),
+        ("Speech", "tasks.speech_listening.per_subject_unique", "h"),
+        ("Text",   "tasks.text_reading.per_subject_unique",     "h"),
+        ("Rest",   "tasks.resting_state.per_subject_h",         "h"),
+        ("Controlled", "tasks.controlled.per_subject_h",        "h"),
+        ("Games",      "tasks.game.per_subject_h",              "h"),
+        ("Contrasts",  "tasks.contrasts.per_subject",               "#"),
     ]),
     ("Physiology", "#7030A0", [
         ("ECG",   "physiology.ecg.per_subject_h",            "h"),
@@ -38,17 +37,16 @@ COLUMN_GROUPS_TOTAL = [
         ("MEG",   "neuroimaging.meg.total_h",   "h"),
         ("iEEG",  "neuroimaging.ieeg.total_h",  "h"),
     ]),
-    ("Passive", "#538135", [
-        ("Images", "passive.images.total_unique",           "#img"),
-        ("Video",  "passive.video.total_unique",            "h"),
-        ("Audio",  "passive.audio.total_unique",            "h"),
-        ("Speech", "passive.speech_listening.total_unique", "h"),
-        ("Text",   "passive.text_reading.total_unique",     "h"),
-        ("Rest",   "passive.resting_state.total_unique",    "h"),
-    ]),
-    ("Active", "#C55A11", [
-        ("Controlled", "active.controlled.total_unique", "h"),
-        ("Games",      "active.game_actions.total_unique",  "h"),
+    ("Tasks", "#538135", [
+        ("Images", "tasks.images.total_unique",           "#img"),
+        ("Video",  "tasks.video.total_unique",            "h"),
+        ("Audio",  "tasks.audio.total_unique",            "h"),
+        ("Speech", "tasks.speech_listening.total_unique", "h"),
+        ("Text",   "tasks.text_reading.total_unique",     "h"),
+        ("Rest",   "tasks.resting_state.total_h",         "h"),
+        ("Controlled", "tasks.controlled.total_h",        "h"),
+        ("Games",      "tasks.game.total_h",              "h"),
+        ("Contrasts",  "tasks.contrasts.total",               "#"),
     ]),
     ("Physiology", "#7030A0", [
         ("ECG",   "physiology.ecg.total_h",            "h"),
@@ -61,10 +59,16 @@ COLUMN_GROUPS_TOTAL = [
 
 
 def _get_nested(d, path):
-    for key in path.split("."):
+    parts = path.split(".")
+    for i, key in enumerate(parts):
         if not isinstance(d, dict) or key not in d:
             return None
         d = d[key]
+        if not isinstance(d, dict) and i < len(parts) - 1:
+            # Scalar where sub-key expected: treat it as both total and per_subject
+            if parts[i + 1] in ("total", "per_subject") and isinstance(d, (int, float)):
+                return d
+            return None
     return d
 
 

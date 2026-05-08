@@ -1,44 +1,50 @@
-active:
-  controlled:
-    per_subject_unique: 16.919999999999998
-    per_subject_with_repetition: 24.25
-    total_unique: 16.919999999999998
-    total_with_repetition: 112.6
 name: CNeuroMod
 neuroimaging:
   fmri:
     per_subject_h: 100.5
     total_h: 548.1
-passive:
+physiology:
+  ecg:
+    per_subject_h: 75.0
+    total_h: 428.0
+  eda:
+    per_subject_h: 75.0
+    total_h: 428.0
+  eye_tracking:
+    per_subject_h: 22
+    total_h: 110
+  plethysmograph:
+    per_subject_h: 75.0
+    total_h: 428.0
+  respiration:
+    per_subject_h: 75.0
+    total_h: 428.0
+subjects_n: 6
+tasks:
+  audio:
+    per_subject_unique: 72.3
+    per_subject_with_repetition: 75.0
+    total_unique: 72.3
+    total_with_repetition: 450.0
+  contrasts: 743
+  controlled:
+    per_subject_h: 24.25
+    total_h: 112.6
   images:
     per_subject_unique: 4320
     per_subject_with_repetition: 12960
     total_unique: 4320
     total_with_repetition: 50400
   resting_state:
-    per_subject_unique: 1.25
-    per_subject_with_repetition: 1.25
-    total_unique: 1.25
-    total_with_repetition: 7.5
+    per_subject_h: 1.25
+    total_h: 7.5
+  speech_listening:
+    per_subject_unique: 72.3
+    per_subject_with_repetition: 75.0
+    total_unique: 72.3
+    total_with_repetition: 450.0
   video:
     per_subject_unique: 72.3
     per_subject_with_repetition: 75.0
     total_unique: 72.3
     total_with_repetition: 450.0
-physiology:
-  ecg:
-    per_subject_h: 65
-    total_h: 368
-  eda:
-    per_subject_h: 65
-    total_h: 368
-  eye_tracking:
-    per_subject_h: 22
-    total_h: 110
-  plethysmograph:
-    per_subject_h: 65
-    total_h: 368
-  respiration:
-    per_subject_h: 65
-    total_h: 368
-subjects_n: 6

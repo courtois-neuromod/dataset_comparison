@@ -17,6 +17,23 @@ def fetch(c):
     with open(schema_file) as f:
         schema = json.load(f)
 
+    # Allow tasks.contrasts to be either a plain integer (cneuromod legacy) or
+    # a {total, per_subject} object (used when the two values differ).
+    schema["properties"]["tasks"]["properties"]["contrasts"] = {
+        "oneOf": [
+            {"type": "integer"},
+            {
+                "type": "object",
+                "properties": {
+                    "total": {"type": "integer"},
+                    "per_subject": {"type": "integer"},
+                },
+                "required": ["total", "per_subject"],
+                "additionalProperties": False,
+            },
+        ]
+    }
+
     yaml_files = sorted(source_dir.glob("*.yaml"))
     if not yaml_files:
         print("No dataset YAML files found in source_data/ — nothing to validate.")

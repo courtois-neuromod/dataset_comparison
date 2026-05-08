@@ -10,6 +10,7 @@ UNIT_SCALES = {
     "h":     200,
     "#img":  19,
     "#cond": 50,
+    "#":     50,
 }
 MIN_S = 60
 MAX_S = 6000
@@ -30,7 +31,7 @@ def value_to_size(value, unit):
 
 
 def fmt(value, unit):
-    if unit in ("#img", "#cond"):
+    if unit in ("#img", "#cond", "#"):
         return f"{value / 1000:.1f}k" if value >= 1000 else str(int(value))
     if value >= 10:
         return f"{value:.0f}h"

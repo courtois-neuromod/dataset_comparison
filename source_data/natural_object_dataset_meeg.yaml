@@ -11,7 +11,7 @@ neuroimaging:
     total_h: 24.0
     per_subject_h: 1.26
 
-passive:
+tasks:
   images:
     total_unique: 4000
     per_subject_unique: 1900

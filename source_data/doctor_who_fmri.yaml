@@ -8,7 +8,7 @@ neuroimaging:
     total_h: 28.5
     per_subject_h: 28.5
 
-passive:
+tasks:
   video:
     total_unique: 23.7
     per_subject_unique: 23.7

@@ -8,16 +8,13 @@ neuroimaging:
     total_h: 14871.0
     per_subject_h: 0.167
 
-active:
+tasks:
   controlled:
-    total_unique: 0.067
-    per_subject_unique: 0.067
-    total_with_repetition: 5377.0
-    per_subject_with_repetition: 0.067
-
-passive:
+    total_h: 5377.0
+    per_subject_h: 0.067
+  contrasts:
+    total: 1
+    per_subject: 1
   resting_state:
-    total_unique: 9493.0
-    per_subject_unique: 0.1
-    total_with_repetition: 9493.0
-    per_subject_with_repetition: 0.1
+    total_h: 9493.0
+    per_subject_h: 0.1
