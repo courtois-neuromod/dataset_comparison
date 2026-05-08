@@ -1,0 +1,28 @@
+name: Human Connectome Project
+short_name: HCP
+reference: https://doi.org/10.1016/j.neuroimage.2013.05.033
+subjects_n: 1200
+
+neuroimaging:
+  fmri:
+    total_h: 2175.0
+    per_subject_h: 1.81
+
+tasks:
+  resting_state:
+    total_h: 1200.0
+    per_subject_h: 1.00
+  controlled:
+    total_h: 976.0
+    per_subject_h: 0.81
+  contrasts:
+    total: 36
+    per_subject: 36
+
+physiology:
+  respiration:
+    total_h: 2175.0
+    per_subject_h: 1.81
+  plethysmograph:
+    total_h: 2175.0
+    per_subject_h: 1.81
