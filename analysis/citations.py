@@ -20,9 +20,9 @@ def _classify(entry_type: str, fields: dict) -> str:
     if etype == "INCOLLECTION":
         return "Book Chapter"
     if etype == "MISC":
-        return "Other"
+        return "Theses & Other"
     if etype != "ARTICLE":
-        return "Other"
+        return "Theses & Other"
 
     combined = " ".join([
         fields.get("journal", ""),

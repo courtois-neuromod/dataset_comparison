@@ -9,6 +9,7 @@ COLUMN_GROUPS_PER_SUBJECT = [
         ("EEG",   "neuroimaging.eeg.per_subject_h",   "h"),
         ("MEG",   "neuroimaging.meg.per_subject_h",   "h"),
         ("iEEG",  "neuroimaging.ieeg.per_subject_h",  "h"),
+        ("Ca²⁺",  "neuroimaging.calcium_imaging.per_subject_h", "h"),
     ]),
     ("Tasks", "#538135", [
         ("Images", "tasks.images.per_subject_unique",           "#img"),
@@ -36,6 +37,7 @@ COLUMN_GROUPS_TOTAL = [
         ("EEG",   "neuroimaging.eeg.total_h",   "h"),
         ("MEG",   "neuroimaging.meg.total_h",   "h"),
         ("iEEG",  "neuroimaging.ieeg.total_h",  "h"),
+        ("Ca²⁺",  "neuroimaging.calcium_imaging.total_h", "h"),
     ]),
     ("Tasks", "#538135", [
         ("Images", "tasks.images.total_unique",           "#img"),
