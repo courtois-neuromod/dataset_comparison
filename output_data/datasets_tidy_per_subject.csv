@@ -113,7 +113,7 @@ UK Biobank,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,
 UK Biobank,Physiology,#7030A0,PPG,physiology.plethysmograph.per_subject_h,h,
 UK Biobank,Physiology,#7030A0,EDA,physiology.eda.per_subject_h,h,
 UK Biobank,Physiology,#7030A0,Eye,physiology.eye_tracking.per_subject_h,h,
-CNeuroMod,Neuroimaging,#4472C4,fMRI,neuroimaging.fmri.per_subject_h,h,126.47
+CNeuroMod,Neuroimaging,#4472C4,fMRI,neuroimaging.fmri.per_subject_h,h,129.31
 CNeuroMod,Neuroimaging,#4472C4,EEG,neuroimaging.eeg.per_subject_h,h,
 CNeuroMod,Neuroimaging,#4472C4,MEG,neuroimaging.meg.per_subject_h,h,
 CNeuroMod,Neuroimaging,#4472C4,iEEG,neuroimaging.ieeg.per_subject_h,h,
@@ -124,9 +124,9 @@ CNeuroMod,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,72.3
 CNeuroMod,Tasks,#538135,Speech,tasks.speech_listening.per_subject_unique,h,72.3
 CNeuroMod,Tasks,#538135,Text,tasks.text_reading.per_subject_unique,h,1.17
 CNeuroMod,Tasks,#538135,Rest,tasks.resting_state.per_subject_h,h,1.25
-CNeuroMod,Tasks,#538135,Controlled,tasks.controlled.per_subject_h,h,24.25
+CNeuroMod,Tasks,#538135,Controlled,tasks.controlled.per_subject_h,h,27.09
 CNeuroMod,Tasks,#538135,Games,tasks.game.per_subject_h,h,24.8
-CNeuroMod,Tasks,#538135,Contrasts,tasks.contrasts.per_subject,#,24.0
+CNeuroMod,Tasks,#538135,Contrasts,tasks.contrasts.per_subject,#,45.0
 CNeuroMod,Physiology,#7030A0,ECG,physiology.ecg.per_subject_h,h,100.97
 CNeuroMod,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,100.97
 CNeuroMod,Physiology,#7030A0,PPG,physiology.plethysmograph.per_subject_h,h,100.97

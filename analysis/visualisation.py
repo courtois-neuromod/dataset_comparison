@@ -4,21 +4,22 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Bubble area = UNIT_SCALES[unit] * sqrt(value)
-# MAX_S caps at ~1000 h or ~100k images; MIN_S sets the smallest visible dot.
+# Bubble area = UNIT_SCALES[unit] * log10(value + 1)
+# Area scales with log so the full dynamic range of each unit fits in the bubble size range.
+# MAX_S caps very large values; MIN_S sets the smallest visible dot.
 UNIT_SCALES = {
-    "h":     200,
-    "#img":  19,
-    "#cond": 50,
-    "#":     50,
+    "h":     1000,
+    "#img":  900,
+    "#cond": 500,
+    "#":     500,
 }
 MIN_S = 60
 MAX_S = 6000
 
 
 def value_to_size(value, unit):
-    """Return (scatter_s, fontsize); area ∝ sqrt(value), clamped to [MIN_S, MAX_S]."""
-    s = min(MAX_S, max(MIN_S, UNIT_SCALES[unit] * np.sqrt(value)))
+    """Return (scatter_s, fontsize); area ∝ log10(value), clamped to [MIN_S, MAX_S]."""
+    s = min(MAX_S, max(MIN_S, UNIT_SCALES[unit] * np.log10(value + 1)))
     if s < 300:
         fs = 5.5
     elif s < 800:

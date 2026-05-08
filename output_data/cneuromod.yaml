@@ -1,8 +1,8 @@
 name: CNeuroMod
 neuroimaging:
   fmri:
-    per_subject_h: 126.47
-    total_h: 669.9
+    per_subject_h: 129.31
+    total_h: 681.47
 physiology:
   ecg:
     per_subject_h: 100.97
@@ -19,17 +19,17 @@ physiology:
   respiration:
     per_subject_h: 100.97
     total_h: 549.8
-subjects_n: 6
+subjects_n: 4
 tasks:
   audio:
     per_subject_unique: 72.3
     per_subject_with_repetition: 75.0
     total_unique: 72.3
     total_with_repetition: 450.0
-  contrasts: 24
+  contrasts: 45
   controlled:
-    per_subject_h: 24.25
-    total_h: 112.6
+    per_subject_h: 27.09
+    total_h: 124.17
   game:
     per_subject_h: 24.8
     total_h: 116.0
