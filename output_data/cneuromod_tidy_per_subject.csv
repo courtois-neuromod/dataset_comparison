@@ -88,7 +88,7 @@ hcptrt,Tasks,#538135,Text,tasks.text_reading.per_subject_unique,h,
 hcptrt,Tasks,#538135,Rest,tasks.resting_state.per_subject_h,h,1.25
 hcptrt,Tasks,#538135,Controlled,tasks.controlled.per_subject_h,h,7.85
 hcptrt,Tasks,#538135,Games,tasks.game.per_subject_h,h,
-hcptrt,Tasks,#538135,Contrasts,tasks.contrasts.per_subject,#,23.0
+hcptrt,Tasks,#538135,Contrasts,tasks.contrasts.per_subject,#,36.0
 hcptrt,Physiology,#7030A0,ECG,physiology.ecg.per_subject_h,h,
 hcptrt,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,
 hcptrt,Physiology,#7030A0,PPG,physiology.plethysmograph.per_subject_h,h,
@@ -100,8 +100,8 @@ mario,Neuroimaging,#4472C4,MEG,neuroimaging.meg.per_subject_h,h,
 mario,Neuroimaging,#4472C4,iEEG,neuroimaging.ieeg.per_subject_h,h,
 mario,Neuroimaging,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.per_subject_h,h,
 mario,Tasks,#538135,Images,tasks.images.per_subject_unique,#img,
-mario,Tasks,#538135,Video,tasks.video.per_subject_unique,h,
-mario,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,
+mario,Tasks,#538135,Video,tasks.video.per_subject_unique,h,16.8
+mario,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,16.8
 mario,Tasks,#538135,Speech,tasks.speech_listening.per_subject_unique,h,
 mario,Tasks,#538135,Text,tasks.text_reading.per_subject_unique,h,
 mario,Tasks,#538135,Rest,tasks.resting_state.per_subject_h,h,
@@ -157,8 +157,8 @@ shinobi,Neuroimaging,#4472C4,MEG,neuroimaging.meg.per_subject_h,h,
 shinobi,Neuroimaging,#4472C4,iEEG,neuroimaging.ieeg.per_subject_h,h,
 shinobi,Neuroimaging,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.per_subject_h,h,
 shinobi,Tasks,#538135,Images,tasks.images.per_subject_unique,#img,
-shinobi,Tasks,#538135,Video,tasks.video.per_subject_unique,h,
-shinobi,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,
+shinobi,Tasks,#538135,Video,tasks.video.per_subject_unique,h,8.0
+shinobi,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,8.0
 shinobi,Tasks,#538135,Speech,tasks.speech_listening.per_subject_unique,h,
 shinobi,Tasks,#538135,Text,tasks.text_reading.per_subject_unique,h,
 shinobi,Tasks,#538135,Rest,tasks.resting_state.per_subject_h,h,

@@ -67,7 +67,7 @@ def make_bubble_chart(column_groups, pivot, datasets_list, title, out_path,
     neuro_hour_paths = [
         p for gname, _, fields in column_groups
         for _, p, u in fields
-        if gname == "Neuroimaging" and u == "h"
+        if gname == "Brain recordings" and u == "h"
     ]
 
     def _neuro_sum(ds):
@@ -160,7 +160,7 @@ def make_neuroimaging_depthvsbreadth(pivot_per_subject, pivot_total, datasets_li
         if column_groups is None:
             return []
         for gname, _color, fields in column_groups:
-            if gname == "Neuroimaging":
+            if gname == "Brain recordings":
                 return fields
         return []
 
@@ -181,7 +181,7 @@ def make_neuroimaging_depthvsbreadth(pivot_per_subject, pivot_total, datasets_li
     ]
     modality_labels = " + ".join(label for label, _, _ in neuro_ps) if neuro_ps \
         else "fMRI + EEG + MEG + iEEG"
-    xlabel = f"Neuroimaging hours per subject ({modality_labels})"
+    xlabel = f"Brain recording hours per subject ({modality_labels})"
 
     def _sum_paths(pivot, ds, paths):
         total = 0.0
@@ -248,7 +248,7 @@ def make_neuroimaging_depthvsbreadth(pivot_per_subject, pivot_total, datasets_li
                     color=color, zorder=5)
     ax.set_xlabel(xlabel, fontsize=10)
     ax.set_ylabel("Number of subjects", fontsize=10)
-    ax.set_title("Neuroimaging depth vs. breadth", fontsize=12, fontweight="bold")
+    ax.set_title("Brain recordings depth vs. breadth", fontsize=12, fontweight="bold")
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
 

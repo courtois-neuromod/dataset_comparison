@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 COLUMN_GROUPS_PER_SUBJECT = [
-    ("Neuroimaging", "#4472C4", [
+    ("Brain recordings", "#4472C4", [
         ("fMRI",  "neuroimaging.fmri.per_subject_h",  "h"),
         ("EEG",   "neuroimaging.eeg.per_subject_h",   "h"),
         ("MEG",   "neuroimaging.meg.per_subject_h",   "h"),
@@ -32,7 +32,7 @@ COLUMN_GROUPS_PER_SUBJECT = [
 ]
 
 COLUMN_GROUPS_TOTAL = [
-    ("Neuroimaging", "#4472C4", [
+    ("Brain recordings", "#4472C4", [
         ("fMRI",  "neuroimaging.fmri.total_h",  "h"),
         ("EEG",   "neuroimaging.eeg.total_h",   "h"),
         ("MEG",   "neuroimaging.meg.total_h",   "h"),

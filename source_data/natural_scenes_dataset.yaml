@@ -21,8 +21,8 @@ tasks:
     total_h: 284.0
     per_subject_h: 35.5
   contrasts:
-    total: 1
-    per_subject: 1
+    total: 22
+    per_subject: 22
 
 physiology:
   eye_tracking:

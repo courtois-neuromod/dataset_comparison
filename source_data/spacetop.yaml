@@ -15,10 +15,10 @@ tasks:
     total_with_repetition: 145.4
     per_subject_with_repetition: 1.44
   speech_listening:
-    total_unique: 0.14
-    per_subject_unique: 0.14
-    total_with_repetition: 14.1
-    per_subject_with_repetition: 0.14
+    total_unique: 1.58
+    per_subject_unique: 1.58
+    total_with_repetition: 159.5
+    per_subject_with_repetition: 1.58
   text_reading:
     total_unique: 0.20
     per_subject_unique: 0.20
@@ -28,8 +28,8 @@ tasks:
     total_h: 293.9
     per_subject_h: 2.91
   contrasts:
-    total: 739
-    per_subject: 554
+    total: 14
+    per_subject: 12
 
 physiology:
   eda:

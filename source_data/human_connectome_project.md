@@ -176,7 +176,7 @@ Contrasts derived from the GLM design described in the paper (pp. 180–181):
 
 **Total: 11 + 3 + 10 + 3 + 3 + 3 + 3 = 36 contrasts**
 
-**Note:** The official HCP S1200 data release documents 47 standard contrasts. The additional 11 likely include per-category × per-memory-load contrasts for the WM task (e.g., 2-back-Body vs. fixation, 0-back-Face vs. fixation, etc.) that are derivable from the 8 WM predictors but not explicitly enumerated in this paper. The count of 36 reflects contrasts explicitly described in the Methods section of this paper.
+**Note:** The official HCP S1200 data release is reported to document 47 standard contrasts. The additional 11 beyond the 36 here likely include per-category × per-memory-load contrasts for the WM task (e.g., 2-back-Body vs. fixation, 0-back-Face vs. fixation) derivable from the 8 WM predictors but not explicitly enumerated in the paper. The count of 36 reflects contrasts that are explicitly described in the Methods section of Barch et al. 2013 and correspond directly to canonical whole-brain localizer maps; the S1200 reference manual would be needed to confirm 47.
 
 ---
 

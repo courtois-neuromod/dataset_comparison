@@ -22,11 +22,11 @@ physiology:
 subjects_n: 4
 tasks:
   audio:
-    per_subject_unique: 72.3
-    per_subject_with_repetition: 75.0
-    total_unique: 72.3
-    total_with_repetition: 450.0
-  contrasts: 45
+    per_subject_unique: 97.1
+    per_subject_with_repetition: 99.8
+    total_unique: 188.3
+    total_with_repetition: 566.0
+  contrasts: 58
   controlled:
     per_subject_h: 27.09
     total_h: 124.17
@@ -52,7 +52,7 @@ tasks:
     total_unique: 1.17
     total_with_repetition: 5.83
   video:
-    per_subject_unique: 72.3
-    per_subject_with_repetition: 75.0
-    total_unique: 72.3
-    total_with_repetition: 450.0
+    per_subject_unique: 97.1
+    per_subject_with_repetition: 99.8
+    total_unique: 188.3
+    total_with_repetition: 566.0

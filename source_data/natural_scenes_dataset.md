@@ -85,6 +85,30 @@ The recognition task runs throughout all NSD fMRI sessions. Per-subject average 
 
 ---
 
+## tasks.contrasts: 22 per subject and total
+
+The NSD contrasts come from three sources, totalling 22 per subject. All 8 participants completed both localizer experiments in the initial prfloc screening session (p. 117).
+
+**pRF / retinotopy — 12 contrasts**
+
+> "We adapted the experiment used in the **Human Connectome Project 7T Retinotopy Dataset**. … Two run types were used. The first, termed 'multibar', involves bars sweeping in multiple directions (same as RETBAR in the Human Connectome Project 7T Retinotopy Dataset). The second, termed 'wedging', involves a combination of rotating wedges and expanding and contracting rings. … A total of **six runs** (three multibar and three wedging) were collected in the first 7T fMRI session (prfloc)." (Methods, p. 129)
+
+This is the same protocol as the CNeuroMod retinotopy dataset, which yields 12 visual area maps (V1–V3, hV4, VO1/2, LO1/2, TO1/2, V3a/b); the same count is used here.
+
+**fLoc — 9 contrasts**
+
+> "This experiment was developed by the **Grill-Spector laboratory** (stimuli and presentation code available at http://vpnl.stanford.edu/fLoc/). The experiment consisted of the presentation of grayscale images depicting different stimulus categories (Fig. 2a). There were **ten categories, grouped into five stimulus domains**: characters (word and number), bodies (body and limb), faces (adult and child), places (corridor and house) and objects (car and instrument). … In total, **six runs** were collected in the first 7T fMRI session (prfloc)." (Methods, p. 129)
+
+This is the same fLoc protocol as the CNeuroMod floc dataset, which yields 9 GLM contrasts (subject-specific ROIs for FFA, OFA, pSTS, PPA, OPA, MPA, and EBA); the same count is used here.
+
+**Recognition memory task — 1 contrast**
+
+The old/new recognition judgment is the single contrast from the core NSD experiment (see `active.controlled` above).
+
+`total = per_subject = 22` because all 8 subjects run identical localizers and the same recognition task, so no unique content accumulates across subjects.
+
+---
+
 ## physiology.eye_tracking
 
 ### per_subject_h: 3.0, total_h: 24.0

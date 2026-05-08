@@ -88,7 +88,7 @@ hcptrt,Tasks,#538135,Text,tasks.text_reading.total_unique,h,
 hcptrt,Tasks,#538135,Rest,tasks.resting_state.total_h,h,7.5
 hcptrt,Tasks,#538135,Controlled,tasks.controlled.total_h,h,47.1
 hcptrt,Tasks,#538135,Games,tasks.game.total_h,h,
-hcptrt,Tasks,#538135,Contrasts,tasks.contrasts.total,#,23.0
+hcptrt,Tasks,#538135,Contrasts,tasks.contrasts.total,#,36.0
 hcptrt,Physiology,#7030A0,ECG,physiology.ecg.total_h,h,
 hcptrt,Physiology,#7030A0,Resp.,physiology.respiration.total_h,h,
 hcptrt,Physiology,#7030A0,PPG,physiology.plethysmograph.total_h,h,
@@ -100,8 +100,8 @@ mario,Neuroimaging,#4472C4,MEG,neuroimaging.meg.total_h,h,
 mario,Neuroimaging,#4472C4,iEEG,neuroimaging.ieeg.total_h,h,
 mario,Neuroimaging,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.total_h,h,
 mario,Tasks,#538135,Images,tasks.images.total_unique,#img,
-mario,Tasks,#538135,Video,tasks.video.total_unique,h,
-mario,Tasks,#538135,Audio,tasks.audio.total_unique,h,
+mario,Tasks,#538135,Video,tasks.video.total_unique,h,84.0
+mario,Tasks,#538135,Audio,tasks.audio.total_unique,h,84.0
 mario,Tasks,#538135,Speech,tasks.speech_listening.total_unique,h,
 mario,Tasks,#538135,Text,tasks.text_reading.total_unique,h,
 mario,Tasks,#538135,Rest,tasks.resting_state.total_h,h,
@@ -157,8 +157,8 @@ shinobi,Neuroimaging,#4472C4,MEG,neuroimaging.meg.total_h,h,
 shinobi,Neuroimaging,#4472C4,iEEG,neuroimaging.ieeg.total_h,h,
 shinobi,Neuroimaging,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.total_h,h,
 shinobi,Tasks,#538135,Images,tasks.images.total_unique,#img,
-shinobi,Tasks,#538135,Video,tasks.video.total_unique,h,
-shinobi,Tasks,#538135,Audio,tasks.audio.total_unique,h,
+shinobi,Tasks,#538135,Video,tasks.video.total_unique,h,32.0
+shinobi,Tasks,#538135,Audio,tasks.audio.total_unique,h,32.0
 shinobi,Tasks,#538135,Speech,tasks.speech_listening.total_unique,h,
 shinobi,Tasks,#538135,Text,tasks.text_reading.total_unique,h,
 shinobi,Tasks,#538135,Rest,tasks.resting_state.total_h,h,

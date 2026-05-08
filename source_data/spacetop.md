@@ -64,14 +64,26 @@ Detailed per-video durations are in Table 5 (pp. 9–10).
 
 ## naturalistic_stimuli.speech_listening
 
-### total_unique: 0.14 h | per_subject_unique: 0.14 h
-### total_with_repetition: 14.1 h | per_subject_with_repetition: 0.14 h
+### total_unique: 1.58 h | per_subject_unique: 1.58 h
+### total_with_repetition: 159.5 h | per_subject_with_repetition: 1.58 h
+
+`speech_listening` combines two sources: (1) the 49 naturalistic video clips from `task-alignvideo`, which include audio with spoken language, and (2) the 4 audio narrative clips from `task-narratives`.
+
+**task-alignvideo (1.44 h per subject):**
+
+> "in task-alignvideo, participants watch naturalistic videos and rate their emotional responses. Therefore, this task includes multimodal stimuli, incorporating both visual and auditory elements, and incorporates affective and social domains."
+
+Source: Overview of neuroimaging modalities and tasks, p. 3.
+
+Video duration: 86 min 9 sec = 1.44 h per subject (see `naturalistic_stimuli.video` above).
+
+**task-narratives — audio clips (0.14 h per subject):**
 
 > "Participants were instructed to read or listen to 8 different narratives while in the scanner."
 
 Source: Naturalistic narratives task / task-narratives, p. 8.
 
-Table 6 (p. 10) lists the 8 narrative clips with durations. The 4 audio clips (run-01 stories 7 & 8; run-02 stories 5 & 6) have durations:
+Table 6 (p. 10) lists the 8 narrative clips. The 4 audio clips (run-01 stories 7 & 8; run-02 stories 5 & 6) have durations:
 - Story 7: 2:01 = 121 s
 - Story 8: 1:36 = 96 s
 - Story 5: 2:30 = 150 s
@@ -79,9 +91,8 @@ Table 6 (p. 10) lists the 8 narrative clips with durations. The 4 audio clips (r
 
 Total audio = 491 s ÷ 3,600 = **0.136 h ≈ 0.14 h** per subject.
 
-> "The entire task consisted of four runs, with two narratives..."
-
-All 101 subjects heard the same 4 audio narratives: total_with_repetition = 0.14 × 101 = **14.1 h**.
+**Combined:** 1.44 + 0.14 = **1.58 h** per subject unique.  
+All 101 subjects received identical stimuli: total_with_repetition = 1.58 × 101 = **159.5 h** (= 145.4 + 14.1 h).
 
 Source: Table 6, p. 10.
 
@@ -106,54 +117,42 @@ Source: Table 6, p. 10.
 
 ---
 
-## responses.controlled_tasks
+## tasks.contrasts
 
-### total_unique: 739 | per_subject_unique: 554
+### total: 14 | per_subject: 12
 
-Unique experimental conditions summed across all controlled tasks (naturalistic stimuli already counted above):
+Canonical neuroimaging contrasts for the four controlled tasks, as listed in Table 4 (p. 8):
 
-| Task | Conditions | Derivation |
+> "We provide a detailed overview of the key contrasts inherent to each task (Table 4). These are the primary cognitive processes, or 'canonical' contrasts, which serve for understanding the core aspects of each tasks' design and its analytical focus."
+
+Source: Overview of neuroimaging modalities and tasks, p. 3.
+
+| Task | Contrasts | N |
 |---|---|---|
-| task-social | 18 | 2 cue × 3 intensity × 3 domain |
-| task-faces | 288 | 96 unique face stimuli/run × 3 runs |
-| task-shortvideo | 63 | 21 clips × 3 judgment types |
-| fractional-posner | 2 | valid vs invalid cue |
-| fractional-memory | 92 | 52 encoding images + 40 new distractors |
-| fractional-tomspunt | 256 | 64 images × 2 questions × 2 mediums |
-| fractional-tomsaxe | 20 | 10 false-belief + 10 false-photo stories |
-| **Total** | **739** | |
+| task-social | Somatic pain > baseline; Vicarious pain > baseline; Cognitive discomfort > baseline | 3 |
+| task-faces | Age > baseline; Gender > baseline; Facial expression > baseline | 3 |
+| task-shortvideo | Likeability > baseline; Similarity > baseline; Mental state attribution > baseline | 3 |
+| Fractional "Why/how" (tomspunt) | Why > How | 1 |
+| Fractional "False-belief" (tomsaxe) | False belief > False photograph | 1 |
+| Fractional "Posner" | Invalid cue > Valid cue | 1 |
+| Fractional "Memory" | Encoding > baseline; Retrieval > baseline | 2 |
+| **Total** | | **14** |
 
-Key quotes per task:
+Naturalistic tasks (task-alignvideo, task-narratives) are not included here — their contrasts (Video > baseline, Audio > Text, etc.) pertain to naturalistic stimuli already captured under `video`, `speech_listening`, and `text_reading`.
 
-**task-social:** > "Each task was designed as a 2 cue (high/low) × 3 stimulus intensity (high/med/low) factorial design. The three tasks were conducted repeatedly on average, one week apart across three sessions." (3 domains: somatic pain, vicarious pain, cognitive effort) → 2 × 3 × 3 = 18 conditions.  
-Source: Multimodal negative affect task, p. 5.
-
-**task-faces:** > "Participants were presented with 288 dynamic faces of varying race, age, sex, and facial expression." and "96 trials in total (8 emotion x 2 sex x 3 race x 2 age)" per run × 3 runs = 288 unique face stimuli.  
-Source: Dynamic faces task, p. 8.
-
-**task-shortvideo:** > "63 trials (21 short videos x 3 judgments)" — likability, similarity, mental state attribution.  
-Source: Video-based multiattribute social judgement task, Fig. 4, p. 7.
-
-**task-fractional / posner:** > "A total of 120 trials were performed on this task." Primary manipulation: valid vs invalid cue = **2 conditions**.  
-Source: Cognitive/ToM task A, p. 10–11.
-
-**task-fractional / memory:** > "with a total of 26 × 2, i.e., 52 images" (encoding) + "40 × 2 images" for test (40 old + 40 new distractors) = **92 unique images**.  
-Source: Cognitive/ToM task B, p. 11.
-
-**task-fractional / tomspunt:** > "256 images, with 64 images crossed with 2 questions (why/how) and 2 mediums (face/hand)" = 64 × 2 × 2 = **256 unique conditions**.  
-Source: Cognitive/ToM task C, p. 11.
-
-**task-fractional / tomsaxe:** > "10 false belief stories" + "10 false photograph stories" = **20 unique stories**.  
-Source: Cognitive/ToM task D, p. 11–12.
-
-**Per subject (554):** All subjects complete social(18) + faces(288) + shortvideo(63) = 369 fixed conditions. For fractional, each subject gets 2 of 4 subtasks:
+**Per subject (≈12):** All subjects complete the three non-fractional controlled tasks: social(3) + faces(3) + shortvideo(3) = 9 fixed contrasts. For task-fractional, each subject is pseudo-randomly assigned to 2 of 4 subtasks:
 
 > "Each participant was pseudo-randomly assigned to undergo two subtasks, which were counterbalanced across participants."  
 Source: Cognitive and Theory-of-mind task, p. 10.
 
-Average conditions from 2 random subtasks drawn from {posner=2, memory=92, tomspunt=256, tomsaxe=20}: mean of all C(4,2)=6 pairs = (94+258+22+348+112+276)/6 = 185. Per subject: 369 + 185 = **554**.
+Contrasts per fractional pair (6 combinations of 4 subtasks):
+- {tomspunt, tomsaxe} = 2, {tomspunt, posner} = 2, {tomspunt, memory} = 3
+- {tomsaxe, posner} = 2, {tomsaxe, memory} = 3, {posner, memory} = 3
+- Average = (2+2+3+2+3+3)/6 = 2.5
 
-Source: Table 4, pp. 8–9; task descriptions pp. 5–12.
+Per subject: 9 + 2.5 = **11.5 ≈ 12**.
+
+Source: Table 4, p. 8.
 
 ---
 
