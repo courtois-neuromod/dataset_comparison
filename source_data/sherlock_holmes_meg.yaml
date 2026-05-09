@@ -1,0 +1,21 @@
+name: Sherlock Holmes MEG (Armeni et al.)
+short_name: Sherlock MEG
+reference: https://doi.org/10.1038/s41597-022-01382-7
+subjects_n: 3
+
+neuroimaging:
+  meg:
+    total_h: 30.0
+    per_subject_h: 10.0
+
+tasks:
+  speech_listening:
+    total_unique: 10.0
+    per_subject_unique: 10.0
+    total_with_repetition: 30.0
+    per_subject_with_repetition: 10.0
+
+physiology:
+  eye_tracking:
+    total_h: 30.0
+    per_subject_h: 10.0

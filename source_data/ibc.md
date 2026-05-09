@@ -104,6 +104,22 @@ From the IBC documentation: the Pixar short film "Partly Cloudy." Duration: **~6
 
 ---
 
+## tasks.audio
+
+### total_unique: 2.15 | per_subject_unique: 2.15 | total_with_repetition: 25.8 | per_subject_with_repetition: 2.15
+
+Audio is present in three of the four naturalistic video tasks (Clips is silent):
+- Raiders: 1.92 h (French-dubbed movie with dialogue and music)
+- Bang: 0.13 h (TV episode with dialogue and music)
+- PainMovie: 0.10 h (Pixar short with dialogue and music)
+- Clips: excluded (silent visual-only stimuli — confirmed in protocol)
+
+**Total audio content = 1.92 + 0.13 + 0.10 = 2.15 h per subject.** All subjects watch the same films: total_unique = per_subject_unique = 2.15 h; total_with_repetition = 2.15 × 12 = 25.8 h.
+
+Values equal `tasks.speech_listening` because all audio-bearing videos also contain speech.
+
+---
+
 ## tasks.speech_listening
 
 ### total_unique: 2.15 | per_subject_unique: 2.15 | total_with_repetition: 25.8 | per_subject_with_repetition: 2.15

@@ -25,7 +25,7 @@ Dr Who,Brain recordings,#4472C4,iEEG,neuroimaging.ieeg.per_subject_h,h,
 Dr Who,Brain recordings,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.per_subject_h,h,
 Dr Who,Tasks,#538135,Images,tasks.images.per_subject_unique,#img,
 Dr Who,Tasks,#538135,Video,tasks.video.per_subject_unique,h,23.7
-Dr Who,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,
+Dr Who,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,23.7
 Dr Who,Tasks,#538135,Speech,tasks.speech_listening.per_subject_unique,h,23.7
 Dr Who,Tasks,#538135,Text,tasks.text_reading.per_subject_unique,h,
 Dr Who,Tasks,#538135,Rest,tasks.resting_state.per_subject_h,h,
@@ -63,7 +63,7 @@ IBC,Brain recordings,#4472C4,iEEG,neuroimaging.ieeg.per_subject_h,h,
 IBC,Brain recordings,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.per_subject_h,h,
 IBC,Tasks,#538135,Images,tasks.images.per_subject_unique,#img,
 IBC,Tasks,#538135,Video,tasks.video.per_subject_unique,h,5.83
-IBC,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,
+IBC,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,2.15
 IBC,Tasks,#538135,Speech,tasks.speech_listening.per_subject_unique,h,2.15
 IBC,Tasks,#538135,Text,tasks.text_reading.per_subject_unique,h,
 IBC,Tasks,#538135,Rest,tasks.resting_state.per_subject_h,h,1.0
@@ -82,7 +82,7 @@ iEEG-fMRI film,Brain recordings,#4472C4,iEEG,neuroimaging.ieeg.per_subject_h,h,0
 iEEG-fMRI film,Brain recordings,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.per_subject_h,h,
 iEEG-fMRI film,Tasks,#538135,Images,tasks.images.per_subject_unique,#img,
 iEEG-fMRI film,Tasks,#538135,Video,tasks.video.per_subject_unique,h,0.11
-iEEG-fMRI film,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,
+iEEG-fMRI film,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,0.11
 iEEG-fMRI film,Tasks,#538135,Speech,tasks.speech_listening.per_subject_unique,h,0.11
 iEEG-fMRI film,Tasks,#538135,Text,tasks.text_reading.per_subject_unique,h,
 iEEG-fMRI film,Tasks,#538135,Rest,tasks.resting_state.per_subject_h,h,0.04
@@ -94,6 +94,44 @@ iEEG-fMRI film,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,
 iEEG-fMRI film,Physiology,#7030A0,PPG,physiology.plethysmograph.per_subject_h,h,
 iEEG-fMRI film,Physiology,#7030A0,EDA,physiology.eda.per_subject_h,h,
 iEEG-fMRI film,Physiology,#7030A0,Eye,physiology.eye_tracking.per_subject_h,h,
+Narratives,Brain recordings,#4472C4,fMRI,neuroimaging.fmri.per_subject_h,h,0.45
+Narratives,Brain recordings,#4472C4,EEG,neuroimaging.eeg.per_subject_h,h,
+Narratives,Brain recordings,#4472C4,MEG,neuroimaging.meg.per_subject_h,h,
+Narratives,Brain recordings,#4472C4,iEEG,neuroimaging.ieeg.per_subject_h,h,
+Narratives,Brain recordings,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.per_subject_h,h,
+Narratives,Tasks,#538135,Images,tasks.images.per_subject_unique,#img,
+Narratives,Tasks,#538135,Video,tasks.video.per_subject_unique,h,
+Narratives,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,
+Narratives,Tasks,#538135,Speech,tasks.speech_listening.per_subject_unique,h,0.45
+Narratives,Tasks,#538135,Text,tasks.text_reading.per_subject_unique,h,
+Narratives,Tasks,#538135,Rest,tasks.resting_state.per_subject_h,h,
+Narratives,Tasks,#538135,Controlled,tasks.controlled.per_subject_h,h,
+Narratives,Tasks,#538135,Games,tasks.game.per_subject_h,h,
+Narratives,Tasks,#538135,Contrasts,tasks.contrasts.per_subject,#,
+Narratives,Physiology,#7030A0,ECG,physiology.ecg.per_subject_h,h,
+Narratives,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,
+Narratives,Physiology,#7030A0,PPG,physiology.plethysmograph.per_subject_h,h,
+Narratives,Physiology,#7030A0,EDA,physiology.eda.per_subject_h,h,
+Narratives,Physiology,#7030A0,Eye,physiology.eye_tracking.per_subject_h,h,
+NL-fMRI,Brain recordings,#4472C4,fMRI,neuroimaging.fmri.per_subject_h,h,10.1
+NL-fMRI,Brain recordings,#4472C4,EEG,neuroimaging.eeg.per_subject_h,h,
+NL-fMRI,Brain recordings,#4472C4,MEG,neuroimaging.meg.per_subject_h,h,
+NL-fMRI,Brain recordings,#4472C4,iEEG,neuroimaging.ieeg.per_subject_h,h,
+NL-fMRI,Brain recordings,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.per_subject_h,h,
+NL-fMRI,Tasks,#538135,Images,tasks.images.per_subject_unique,#img,
+NL-fMRI,Tasks,#538135,Video,tasks.video.per_subject_unique,h,
+NL-fMRI,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,9.3
+NL-fMRI,Tasks,#538135,Speech,tasks.speech_listening.per_subject_unique,h,9.3
+NL-fMRI,Tasks,#538135,Text,tasks.text_reading.per_subject_unique,h,
+NL-fMRI,Tasks,#538135,Rest,tasks.resting_state.per_subject_h,h,
+NL-fMRI,Tasks,#538135,Controlled,tasks.controlled.per_subject_h,h,
+NL-fMRI,Tasks,#538135,Games,tasks.game.per_subject_h,h,
+NL-fMRI,Tasks,#538135,Contrasts,tasks.contrasts.per_subject,#,
+NL-fMRI,Physiology,#7030A0,ECG,physiology.ecg.per_subject_h,h,
+NL-fMRI,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,
+NL-fMRI,Physiology,#7030A0,PPG,physiology.plethysmograph.per_subject_h,h,
+NL-fMRI,Physiology,#7030A0,EDA,physiology.eda.per_subject_h,h,
+NL-fMRI,Physiology,#7030A0,Eye,physiology.eye_tracking.per_subject_h,h,
 NOD,Brain recordings,#4472C4,fMRI,neuroimaging.fmri.per_subject_h,h,
 NOD,Brain recordings,#4472C4,EEG,neuroimaging.eeg.per_subject_h,h,1.26
 NOD,Brain recordings,#4472C4,MEG,neuroimaging.meg.per_subject_h,h,0.83
@@ -139,7 +177,7 @@ NNDb,Brain recordings,#4472C4,iEEG,neuroimaging.ieeg.per_subject_h,h,
 NNDb,Brain recordings,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.per_subject_h,h,
 NNDb,Tasks,#538135,Images,tasks.images.per_subject_unique,#img,
 NNDb,Tasks,#538135,Video,tasks.video.per_subject_unique,h,1.87
-NNDb,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,
+NNDb,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,1.87
 NNDb,Tasks,#538135,Speech,tasks.speech_listening.per_subject_unique,h,1.87
 NNDb,Tasks,#538135,Text,tasks.text_reading.per_subject_unique,h,
 NNDb,Tasks,#538135,Rest,tasks.resting_state.per_subject_h,h,
@@ -170,6 +208,25 @@ OmniMouse,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,
 OmniMouse,Physiology,#7030A0,PPG,physiology.plethysmograph.per_subject_h,h,
 OmniMouse,Physiology,#7030A0,EDA,physiology.eda.per_subject_h,h,
 OmniMouse,Physiology,#7030A0,Eye,physiology.eye_tracking.per_subject_h,h,7.6
+Sherlock MEG,Brain recordings,#4472C4,fMRI,neuroimaging.fmri.per_subject_h,h,
+Sherlock MEG,Brain recordings,#4472C4,EEG,neuroimaging.eeg.per_subject_h,h,
+Sherlock MEG,Brain recordings,#4472C4,MEG,neuroimaging.meg.per_subject_h,h,10.0
+Sherlock MEG,Brain recordings,#4472C4,iEEG,neuroimaging.ieeg.per_subject_h,h,
+Sherlock MEG,Brain recordings,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.per_subject_h,h,
+Sherlock MEG,Tasks,#538135,Images,tasks.images.per_subject_unique,#img,
+Sherlock MEG,Tasks,#538135,Video,tasks.video.per_subject_unique,h,
+Sherlock MEG,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,
+Sherlock MEG,Tasks,#538135,Speech,tasks.speech_listening.per_subject_unique,h,10.0
+Sherlock MEG,Tasks,#538135,Text,tasks.text_reading.per_subject_unique,h,
+Sherlock MEG,Tasks,#538135,Rest,tasks.resting_state.per_subject_h,h,
+Sherlock MEG,Tasks,#538135,Controlled,tasks.controlled.per_subject_h,h,
+Sherlock MEG,Tasks,#538135,Games,tasks.game.per_subject_h,h,
+Sherlock MEG,Tasks,#538135,Contrasts,tasks.contrasts.per_subject,#,
+Sherlock MEG,Physiology,#7030A0,ECG,physiology.ecg.per_subject_h,h,
+Sherlock MEG,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,
+Sherlock MEG,Physiology,#7030A0,PPG,physiology.plethysmograph.per_subject_h,h,
+Sherlock MEG,Physiology,#7030A0,EDA,physiology.eda.per_subject_h,h,
+Sherlock MEG,Physiology,#7030A0,Eye,physiology.eye_tracking.per_subject_h,h,10.0
 Spacetop,Brain recordings,#4472C4,fMRI,neuroimaging.fmri.per_subject_h,h,6.0
 Spacetop,Brain recordings,#4472C4,EEG,neuroimaging.eeg.per_subject_h,h,
 Spacetop,Brain recordings,#4472C4,MEG,neuroimaging.meg.per_subject_h,h,
@@ -177,7 +234,7 @@ Spacetop,Brain recordings,#4472C4,iEEG,neuroimaging.ieeg.per_subject_h,h,
 Spacetop,Brain recordings,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.per_subject_h,h,
 Spacetop,Tasks,#538135,Images,tasks.images.per_subject_unique,#img,
 Spacetop,Tasks,#538135,Video,tasks.video.per_subject_unique,h,1.44
-Spacetop,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,
+Spacetop,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,1.58
 Spacetop,Tasks,#538135,Speech,tasks.speech_listening.per_subject_unique,h,1.58
 Spacetop,Tasks,#538135,Text,tasks.text_reading.per_subject_unique,h,0.2
 Spacetop,Tasks,#538135,Rest,tasks.resting_state.per_subject_h,h,

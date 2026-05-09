@@ -103,6 +103,15 @@ def make_bubble_chart(column_groups, pivot, datasets_list, title, out_path,
     for tick, (_, _, _, color) in zip(ax.get_xticklabels(), all_cols):
         tick.set_color(color)
 
+    col_maxima = {}
+    for col_j, (label, path, unit, color) in enumerate(all_cols):
+        if path not in pivot.columns:
+            continue
+        col_vals = pivot.loc[pivot.index.isin(datasets_sorted), path].dropna()
+        col_vals = col_vals[col_vals > 0]
+        if not col_vals.empty:
+            col_maxima[col_j] = col_vals.idxmax()
+
     for row_i, ds_name in enumerate(datasets_sorted):
         y = n_ds - 1 - row_i
         ax.text(-0.52, y, ds_name, ha="right", va="center", fontsize=9)
@@ -113,7 +122,11 @@ def make_bubble_chart(column_groups, pivot, datasets_list, title, out_path,
             if pd.isna(value) or value == 0:
                 continue
             s, fs = value_to_size(value, unit)
-            ax.scatter(col_j, y, s=s, color=color, alpha=0.75, linewidths=0, zorder=3)
+            is_col_max = col_maxima.get(col_j) == ds_name
+            edge_color = "black" if is_col_max else "none"
+            edge_width = 2.5 if is_col_max else 0
+            ax.scatter(col_j, y, s=s, color=color, alpha=0.75,
+                       edgecolors=edge_color, linewidths=edge_width, zorder=3)
             if s <= MIN_S:
                 ax.text(col_j + 0.12, y, fmt(value, unit),
                         ha="left", va="center", fontsize=fs, fontweight="bold",

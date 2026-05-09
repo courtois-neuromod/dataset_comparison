@@ -1,0 +1,21 @@
+name: Natural Language fMRI (LeBel et al.)
+short_name: NL-fMRI
+reference: https://doi.org/10.1038/s41597-023-02437-z
+subjects_n: 8
+
+neuroimaging:
+  fmri:
+    total_h: 81.0
+    per_subject_h: 10.1
+
+tasks:
+  speech_listening:
+    total_unique: 15.9
+    per_subject_unique: 9.3
+    total_with_repetition: 81.0
+    per_subject_with_repetition: 10.1
+  audio:
+    total_unique: 15.9
+    per_subject_unique: 9.3
+    total_with_repetition: 81.0
+    per_subject_with_repetition: 10.1

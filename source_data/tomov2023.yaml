@@ -1,0 +1,14 @@
+name: Atari Game Learning fMRI (Tomov 2023)
+short_name: AtariFMRI
+reference: https://doi.org/10.1016/j.neuron.2023.01.023
+subjects_n: 32
+
+neuroimaging:
+  fmri:
+    total_h: 30.2
+    per_subject_h: 0.94
+
+tasks:
+  game:
+    total_h: 30.2
+    per_subject_h: 0.94

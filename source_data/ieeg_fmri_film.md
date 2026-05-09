@@ -49,7 +49,7 @@ Note: 26 (task rest) + 24 (natural rest) = 50 subjects with rest data. Sub-32 is
 
 ---
 
-## tasks.video and tasks.speech_listening
+## tasks.video, tasks.audio, and tasks.speech_listening
 
 ### total_unique: 0.11 / per_subject_unique: 0.11
 
@@ -65,7 +65,7 @@ per_subject_with_repetition = 8.78 / 63 = 0.139 ≈ 0.14 h.
 
 > "Participants who performed the task with both recording modalities: first – with fMRI, and several days or weeks later – with iEEG." (Background & Summary, p. 2)
 
-The same values apply to `speech_listening`: the film is a speech/language paradigm and contains dialogue throughout.
+The same values apply to `audio` and `speech_listening`: the film has a continuous soundtrack of interleaved speech and music blocks throughout.
 
 > "the movie consisted of 13 interleaved blocks of speech and music, 30 seconds each (seven blocks of music, six blocks of speech)" (p. 4)
 

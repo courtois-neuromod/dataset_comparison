@@ -46,7 +46,7 @@ Acquisition parameters:
 
 ---
 
-## tasks.video and tasks.speech_listening
+## tasks.video, tasks.audio, and tasks.speech_listening
 
 ### total_unique: 19.44 / per_subject_unique: 1.87
 
@@ -64,7 +64,7 @@ Each of the 86 participant-movie pairs represents one uninterrupted viewing. No 
 
 per_subject_with_repetition = per_subject_unique = 1.87 h (no within-subject repetitions).
 
-The same values apply to `speech_listening`: all 10 movies are narrative feature films with extensive dialogue throughout.
+The same values apply to `audio` and `speech_listening`: all 10 movies are narrative feature films with full audio soundtracks and extensive dialogue throughout.
 
 > "They had not previously seen the movies they watched because multiple viewings might change the functional network architecture of the brain." (Methods, "Participants", p. 3)
 

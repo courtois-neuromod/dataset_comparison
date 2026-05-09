@@ -62,6 +62,19 @@ Detailed per-video durations are in Table 5 (pp. 9–10).
 
 ---
 
+## naturalistic_stimuli.audio
+
+### total_unique: 1.58 h | per_subject_unique: 1.58 h
+### total_with_repetition: 159.5 h | per_subject_with_repetition: 1.58 h
+
+`audio` covers all audio stimulation: (1) the 49 naturalistic video clips from `task-alignvideo` (1.44 h, which include spoken and other audio), and (2) the 4 audio narrative clips from `task-narratives` (0.14 h). All audio content in Spacetop is speech-bearing, so `audio` equals `speech_listening` (1.44 + 0.14 = 1.58 h).
+
+> "in task-alignvideo, participants watch naturalistic videos and rate their emotional responses. Therefore, this task includes multimodal stimuli, incorporating both visual and auditory elements." (Overview of neuroimaging modalities and tasks, p. 3)
+
+Values are identical to `naturalistic_stimuli.speech_listening` below.
+
+---
+
 ## naturalistic_stimuli.speech_listening
 
 ### total_unique: 1.58 h | per_subject_unique: 1.58 h

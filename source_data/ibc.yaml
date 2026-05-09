@@ -17,6 +17,11 @@ tasks:
     per_subject_unique: 5.83
     total_with_repetition: 69.96
     per_subject_with_repetition: 5.83
+  audio:
+    total_unique: 2.15
+    per_subject_unique: 2.15
+    total_with_repetition: 25.8
+    per_subject_with_repetition: 2.15
   speech_listening:
     total_unique: 2.15
     per_subject_unique: 2.15

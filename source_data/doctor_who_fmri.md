@@ -72,6 +72,19 @@ Table 3 (p. 6) gives the repetition counts per test clip:
 
 ---
 
+## naturalistic_stimuli.audio
+
+### per_subject_unique / total_unique: 23.7 h
+### per_subject_with_repetition / total_with_repetition: 27.9 h
+
+Doctor Who episodes are audiovisual — all video content has a full audio soundtrack. `audio` therefore equals `video` identically.
+
+> "We recorded a densely sampled large fMRI dataset (TR=700 ms) in a single individual exposed to spatio-temporal visual and **auditory** naturalistic stimuli (30 episodes of BBC's Doctor Who)." (Abstract, p. 1)
+
+Values are identical to `naturalistic_stimuli.video` above.
+
+---
+
 ## naturalistic_stimuli.speech_listening
 
 ### per_subject_unique / total_unique: 23.7 h

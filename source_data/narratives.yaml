@@ -1,0 +1,16 @@
+name: Narratives
+short_name: Narratives
+reference: https://doi.org/10.1038/s41597-021-01033-3
+subjects_n: 345
+
+neuroimaging:
+  fmri:
+    total_h: 154.0
+    per_subject_h: 0.45
+
+tasks:
+  speech_listening:
+    total_unique: 4.65
+    per_subject_unique: 0.45
+    total_with_repetition: 154.0
+    per_subject_with_repetition: 0.45
