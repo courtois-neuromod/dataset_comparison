@@ -94,6 +94,44 @@ iEEG-fMRI film,Physiology,#7030A0,Resp.,physiology.respiration.total_h,h,
 iEEG-fMRI film,Physiology,#7030A0,PPG,physiology.plethysmograph.total_h,h,
 iEEG-fMRI film,Physiology,#7030A0,EDA,physiology.eda.total_h,h,
 iEEG-fMRI film,Physiology,#7030A0,Eye,physiology.eye_tracking.total_h,h,
+MSC,Brain recordings,#4472C4,fMRI,neuroimaging.fmri.total_h,h,110.0
+MSC,Brain recordings,#4472C4,EEG,neuroimaging.eeg.total_h,h,
+MSC,Brain recordings,#4472C4,MEG,neuroimaging.meg.total_h,h,
+MSC,Brain recordings,#4472C4,iEEG,neuroimaging.ieeg.total_h,h,
+MSC,Brain recordings,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.total_h,h,
+MSC,Tasks,#538135,Images,tasks.images.total_unique,#img,
+MSC,Tasks,#538135,Video,tasks.video.total_unique,h,
+MSC,Tasks,#538135,Audio,tasks.audio.total_unique,h,
+MSC,Tasks,#538135,Speech,tasks.speech_listening.total_unique,h,
+MSC,Tasks,#538135,Text,tasks.text_reading.total_unique,h,
+MSC,Tasks,#538135,Rest,tasks.resting_state.total_h,h,50.0
+MSC,Tasks,#538135,Controlled,tasks.controlled.total_h,h,60.0
+MSC,Tasks,#538135,Games,tasks.game.total_h,h,
+MSC,Tasks,#538135,Contrasts,tasks.contrasts.total,#,7.0
+MSC,Physiology,#7030A0,ECG,physiology.ecg.total_h,h,
+MSC,Physiology,#7030A0,Resp.,physiology.respiration.total_h,h,
+MSC,Physiology,#7030A0,PPG,physiology.plethysmograph.total_h,h,
+MSC,Physiology,#7030A0,EDA,physiology.eda.total_h,h,
+MSC,Physiology,#7030A0,Eye,physiology.eye_tracking.total_h,h,
+MyConnectome,Brain recordings,#4472C4,fMRI,neuroimaging.fmri.total_h,h,14.0
+MyConnectome,Brain recordings,#4472C4,EEG,neuroimaging.eeg.total_h,h,
+MyConnectome,Brain recordings,#4472C4,MEG,neuroimaging.meg.total_h,h,
+MyConnectome,Brain recordings,#4472C4,iEEG,neuroimaging.ieeg.total_h,h,
+MyConnectome,Brain recordings,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.total_h,h,
+MyConnectome,Tasks,#538135,Images,tasks.images.total_unique,#img,
+MyConnectome,Tasks,#538135,Video,tasks.video.total_unique,h,
+MyConnectome,Tasks,#538135,Audio,tasks.audio.total_unique,h,
+MyConnectome,Tasks,#538135,Speech,tasks.speech_listening.total_unique,h,
+MyConnectome,Tasks,#538135,Text,tasks.text_reading.total_unique,h,
+MyConnectome,Tasks,#538135,Rest,tasks.resting_state.total_h,h,14.0
+MyConnectome,Tasks,#538135,Controlled,tasks.controlled.total_h,h,6.8
+MyConnectome,Tasks,#538135,Games,tasks.game.total_h,h,
+MyConnectome,Tasks,#538135,Contrasts,tasks.contrasts.total,#,12.0
+MyConnectome,Physiology,#7030A0,ECG,physiology.ecg.total_h,h,
+MyConnectome,Physiology,#7030A0,Resp.,physiology.respiration.total_h,h,
+MyConnectome,Physiology,#7030A0,PPG,physiology.plethysmograph.total_h,h,
+MyConnectome,Physiology,#7030A0,EDA,physiology.eda.total_h,h,
+MyConnectome,Physiology,#7030A0,Eye,physiology.eye_tracking.total_h,h,
 Narratives,Brain recordings,#4472C4,fMRI,neuroimaging.fmri.total_h,h,154.0
 Narratives,Brain recordings,#4472C4,EEG,neuroimaging.eeg.total_h,h,
 Narratives,Brain recordings,#4472C4,MEG,neuroimaging.meg.total_h,h,
@@ -246,6 +284,44 @@ Spacetop,Physiology,#7030A0,Resp.,physiology.respiration.total_h,h,
 Spacetop,Physiology,#7030A0,PPG,physiology.plethysmograph.total_h,h,585.8
 Spacetop,Physiology,#7030A0,EDA,physiology.eda.total_h,h,585.8
 Spacetop,Physiology,#7030A0,Eye,physiology.eye_tracking.total_h,h,
+studyforrest,Brain recordings,#4472C4,fMRI,neuroimaging.fmri.total_h,h,30.0
+studyforrest,Brain recordings,#4472C4,EEG,neuroimaging.eeg.total_h,h,
+studyforrest,Brain recordings,#4472C4,MEG,neuroimaging.meg.total_h,h,
+studyforrest,Brain recordings,#4472C4,iEEG,neuroimaging.ieeg.total_h,h,
+studyforrest,Brain recordings,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.total_h,h,
+studyforrest,Tasks,#538135,Images,tasks.images.total_unique,#img,
+studyforrest,Tasks,#538135,Video,tasks.video.total_unique,h,2.0
+studyforrest,Tasks,#538135,Audio,tasks.audio.total_unique,h,
+studyforrest,Tasks,#538135,Speech,tasks.speech_listening.total_unique,h,2.0
+studyforrest,Tasks,#538135,Text,tasks.text_reading.total_unique,h,
+studyforrest,Tasks,#538135,Rest,tasks.resting_state.total_h,h,
+studyforrest,Tasks,#538135,Controlled,tasks.controlled.total_h,h,
+studyforrest,Tasks,#538135,Games,tasks.game.total_h,h,
+studyforrest,Tasks,#538135,Contrasts,tasks.contrasts.total,#,
+studyforrest,Physiology,#7030A0,ECG,physiology.ecg.total_h,h,
+studyforrest,Physiology,#7030A0,Resp.,physiology.respiration.total_h,h,30.0
+studyforrest,Physiology,#7030A0,PPG,physiology.plethysmograph.total_h,h,30.0
+studyforrest,Physiology,#7030A0,EDA,physiology.eda.total_h,h,
+studyforrest,Physiology,#7030A0,Eye,physiology.eye_tracking.total_h,h,30.0
+AtariFMRI,Brain recordings,#4472C4,fMRI,neuroimaging.fmri.total_h,h,30.2
+AtariFMRI,Brain recordings,#4472C4,EEG,neuroimaging.eeg.total_h,h,
+AtariFMRI,Brain recordings,#4472C4,MEG,neuroimaging.meg.total_h,h,
+AtariFMRI,Brain recordings,#4472C4,iEEG,neuroimaging.ieeg.total_h,h,
+AtariFMRI,Brain recordings,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.total_h,h,
+AtariFMRI,Tasks,#538135,Images,tasks.images.total_unique,#img,
+AtariFMRI,Tasks,#538135,Video,tasks.video.total_unique,h,
+AtariFMRI,Tasks,#538135,Audio,tasks.audio.total_unique,h,
+AtariFMRI,Tasks,#538135,Speech,tasks.speech_listening.total_unique,h,
+AtariFMRI,Tasks,#538135,Text,tasks.text_reading.total_unique,h,
+AtariFMRI,Tasks,#538135,Rest,tasks.resting_state.total_h,h,
+AtariFMRI,Tasks,#538135,Controlled,tasks.controlled.total_h,h,
+AtariFMRI,Tasks,#538135,Games,tasks.game.total_h,h,30.2
+AtariFMRI,Tasks,#538135,Contrasts,tasks.contrasts.total,#,
+AtariFMRI,Physiology,#7030A0,ECG,physiology.ecg.total_h,h,
+AtariFMRI,Physiology,#7030A0,Resp.,physiology.respiration.total_h,h,
+AtariFMRI,Physiology,#7030A0,PPG,physiology.plethysmograph.total_h,h,
+AtariFMRI,Physiology,#7030A0,EDA,physiology.eda.total_h,h,
+AtariFMRI,Physiology,#7030A0,Eye,physiology.eye_tracking.total_h,h,
 UK Biobank,Brain recordings,#4472C4,fMRI,neuroimaging.fmri.total_h,h,14871.0
 UK Biobank,Brain recordings,#4472C4,EEG,neuroimaging.eeg.total_h,h,
 UK Biobank,Brain recordings,#4472C4,MEG,neuroimaging.meg.total_h,h,

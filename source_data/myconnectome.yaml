@@ -1,0 +1,20 @@
+name: MyConnectome
+short_name: MyConnectome
+reference: https://doi.org/10.1038/ncomms9885
+subjects_n: 1
+
+neuroimaging:
+  fmri:
+    total_h: 14.0
+    per_subject_h: 14.0
+
+tasks:
+  resting_state:
+    total_h: 14.0
+    per_subject_h: 14.0
+  controlled:
+    total_h: 6.8
+    per_subject_h: 6.8
+  contrasts:
+    total: 12
+    per_subject: 12

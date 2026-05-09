@@ -1,0 +1,32 @@
+name: studyforrest
+short_name: studyforrest
+reference: https://doi.org/10.1038/sdata.2016.92
+subjects_n: 15
+
+neuroimaging:
+  fmri:
+    total_h: 30.0
+    per_subject_h: 2.0
+
+tasks:
+  video:
+    total_unique: 2.0
+    per_subject_unique: 2.0
+    total_with_repetition: 30.0
+    per_subject_with_repetition: 2.0
+  speech_listening:
+    total_unique: 2.0
+    per_subject_unique: 2.0
+    total_with_repetition: 30.0
+    per_subject_with_repetition: 2.0
+
+physiology:
+  plethysmograph:
+    total_h: 30.0
+    per_subject_h: 2.0
+  respiration:
+    total_h: 30.0
+    per_subject_h: 2.0
+  eye_tracking:
+    total_h: 30.0
+    per_subject_h: 2.0
