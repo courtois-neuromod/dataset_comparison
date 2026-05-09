@@ -56,6 +56,25 @@ HCP,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,1.81
 HCP,Physiology,#7030A0,PPG,physiology.plethysmograph.per_subject_h,h,1.81
 HCP,Physiology,#7030A0,EDA,physiology.eda.per_subject_h,h,
 HCP,Physiology,#7030A0,Eye,physiology.eye_tracking.per_subject_h,h,
+IBC,Brain recordings,#4472C4,fMRI,neuroimaging.fmri.per_subject_h,h,40.0
+IBC,Brain recordings,#4472C4,EEG,neuroimaging.eeg.per_subject_h,h,
+IBC,Brain recordings,#4472C4,MEG,neuroimaging.meg.per_subject_h,h,
+IBC,Brain recordings,#4472C4,iEEG,neuroimaging.ieeg.per_subject_h,h,
+IBC,Brain recordings,#4472C4,Ca²⁺,neuroimaging.calcium_imaging.per_subject_h,h,
+IBC,Tasks,#538135,Images,tasks.images.per_subject_unique,#img,
+IBC,Tasks,#538135,Video,tasks.video.per_subject_unique,h,5.83
+IBC,Tasks,#538135,Audio,tasks.audio.per_subject_unique,h,
+IBC,Tasks,#538135,Speech,tasks.speech_listening.per_subject_unique,h,2.15
+IBC,Tasks,#538135,Text,tasks.text_reading.per_subject_unique,h,
+IBC,Tasks,#538135,Rest,tasks.resting_state.per_subject_h,h,1.0
+IBC,Tasks,#538135,Controlled,tasks.controlled.per_subject_h,h,33.2
+IBC,Tasks,#538135,Games,tasks.game.per_subject_h,h,
+IBC,Tasks,#538135,Contrasts,tasks.contrasts.per_subject,#,530.0
+IBC,Physiology,#7030A0,ECG,physiology.ecg.per_subject_h,h,
+IBC,Physiology,#7030A0,Resp.,physiology.respiration.per_subject_h,h,
+IBC,Physiology,#7030A0,PPG,physiology.plethysmograph.per_subject_h,h,
+IBC,Physiology,#7030A0,EDA,physiology.eda.per_subject_h,h,
+IBC,Physiology,#7030A0,Eye,physiology.eye_tracking.per_subject_h,h,
 iEEG-fMRI film,Brain recordings,#4472C4,fMRI,neuroimaging.fmri.per_subject_h,h,0.05
 iEEG-fMRI film,Brain recordings,#4472C4,EEG,neuroimaging.eeg.per_subject_h,h,
 iEEG-fMRI film,Brain recordings,#4472C4,MEG,neuroimaging.meg.per_subject_h,h,
